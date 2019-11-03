@@ -39,7 +39,7 @@ struct user {
     double prices;
 };
 
-int main(int argc, const char * argv[]) {
+int main111(int argc, const char * argv[]) {
     
     {
         char buff[1024];

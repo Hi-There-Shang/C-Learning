@@ -15,6 +15,7 @@
 		6C1B04F4236ED1C1000B9765 /* StockFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04F2236ED1C1000B9765 /* StockFactory.cpp */; };
 		6C1B04F7236ED1CB000B9765 /* Stock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04F5236ED1CB000B9765 /* Stock.cpp */; };
 		6C1B04FA236ED20C000B9765 /* Traits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04F8236ED20C000B9765 /* Traits.cpp */; };
+		6C1B04FD236EDF81000B9765 /* Tree_Sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04FB236EDF81000B9765 /* Tree_Sort.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,8 @@
 		6C1B04F6236ED1CB000B9765 /* Stock.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Stock.hpp; sourceTree = "<group>"; };
 		6C1B04F8236ED20C000B9765 /* Traits.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Traits.cpp; sourceTree = "<group>"; };
 		6C1B04F9236ED20C000B9765 /* Traits.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Traits.hpp; sourceTree = "<group>"; };
+		6C1B04FB236EDF81000B9765 /* Tree_Sort.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tree_Sort.cpp; sourceTree = "<group>"; };
+		6C1B04FC236EDF81000B9765 /* Tree_Sort.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Tree_Sort.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 			children = (
 				6C1B04DB236E5CFF000B9765 /* main.cpp */,
 				6C1B04E3236E5D0E000B9765 /* error.hpp */,
+				6C1B04FB236EDF81000B9765 /* Tree_Sort.cpp */,
+				6C1B04FC236EDF81000B9765 /* Tree_Sort.hpp */,
 			);
 			path = POSIX;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			files = (
 				6C1B04EE236E95C5000B9765 /* Foo.cpp in Sources */,
 				6C1B04DC236E5CFF000B9765 /* main.cpp in Sources */,
+				6C1B04FD236EDF81000B9765 /* Tree_Sort.cpp in Sources */,
 				6C1B04FA236ED20C000B9765 /* Traits.cpp in Sources */,
 				6C1B04E8236E7F33000B9765 /* Observer.cpp in Sources */,
 				6C1B04F4236ED1C1000B9765 /* StockFactory.cpp in Sources */,
