@@ -25,4 +25,14 @@ private:
     typename Price_Traits::value_type price;
 };
 
+template <class Name>
+class Stock<Name, void> {
+public:
+    typedef Traits<Name> Name_Traits;
+    Stock(typename Name_Traits::value_type __name): name(__name) {}
+    
+private:
+    typename Name_Traits::value_type name;
+};
+
 #endif /* Stock_hpp */
