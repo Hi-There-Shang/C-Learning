@@ -71,7 +71,7 @@ void tree_heap(int array[], int size) {
 }
 
 #include <iostream>
-int main() {
+int main1234() {
     int nums[] = {4,2,1,5,6,8,10,2,1};
     tree_heap(nums, 9);
     for (int i = 0; i < 9; i++) {
