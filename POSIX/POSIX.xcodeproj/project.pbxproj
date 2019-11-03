@@ -10,6 +10,7 @@
 		6C1B04DC236E5CFF000B9765 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04DB236E5CFF000B9765 /* main.cpp */; };
 		6C1B04E8236E7F33000B9765 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04E6236E7F33000B9765 /* Observer.cpp */; };
 		6C1B04EB236E7F3C000B9765 /* Observable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04E9236E7F3C000B9765 /* Observable.cpp */; };
+		6C1B04EE236E95C5000B9765 /* Foo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04EC236E95C5000B9765 /* Foo.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,8 @@
 		6C1B04E7236E7F33000B9765 /* Observer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Observer.hpp; sourceTree = "<group>"; };
 		6C1B04E9236E7F3C000B9765 /* Observable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Observable.cpp; sourceTree = "<group>"; };
 		6C1B04EA236E7F3C000B9765 /* Observable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Observable.hpp; sourceTree = "<group>"; };
+		6C1B04EC236E95C5000B9765 /* Foo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Foo.cpp; sourceTree = "<group>"; };
+		6C1B04ED236E95C5000B9765 /* Foo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Foo.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				6C1B04E6236E7F33000B9765 /* Observer.cpp */,
 				6C1B04EA236E7F3C000B9765 /* Observable.hpp */,
 				6C1B04E9236E7F3C000B9765 /* Observable.cpp */,
+				6C1B04EC236E95C5000B9765 /* Foo.cpp */,
+				6C1B04ED236E95C5000B9765 /* Foo.hpp */,
 			);
 			path = Boost;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C1B04EE236E95C5000B9765 /* Foo.cpp in Sources */,
 				6C1B04DC236E5CFF000B9765 /* main.cpp in Sources */,
 				6C1B04E8236E7F33000B9765 /* Observer.cpp in Sources */,
 				6C1B04EB236E7F3C000B9765 /* Observable.cpp in Sources */,
