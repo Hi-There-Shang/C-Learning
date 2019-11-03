@@ -11,6 +11,7 @@
 		6C1B04E8236E7F33000B9765 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04E6236E7F33000B9765 /* Observer.cpp */; };
 		6C1B04EB236E7F3C000B9765 /* Observable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04E9236E7F3C000B9765 /* Observable.cpp */; };
 		6C1B04EE236E95C5000B9765 /* Foo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04EC236E95C5000B9765 /* Foo.cpp */; };
+		6C1B04F1236E97E4000B9765 /* Counter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04EF236E97E4000B9765 /* Counter.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,8 @@
 		6C1B04EA236E7F3C000B9765 /* Observable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Observable.hpp; sourceTree = "<group>"; };
 		6C1B04EC236E95C5000B9765 /* Foo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Foo.cpp; sourceTree = "<group>"; };
 		6C1B04ED236E95C5000B9765 /* Foo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Foo.hpp; sourceTree = "<group>"; };
+		6C1B04EF236E97E4000B9765 /* Counter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Counter.cpp; sourceTree = "<group>"; };
+		6C1B04F0236E97E4000B9765 /* Counter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Counter.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 				6C1B04E9236E7F3C000B9765 /* Observable.cpp */,
 				6C1B04EC236E95C5000B9765 /* Foo.cpp */,
 				6C1B04ED236E95C5000B9765 /* Foo.hpp */,
+				6C1B04EF236E97E4000B9765 /* Counter.cpp */,
+				6C1B04F0236E97E4000B9765 /* Counter.hpp */,
 			);
 			path = Boost;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				6C1B04DC236E5CFF000B9765 /* main.cpp in Sources */,
 				6C1B04E8236E7F33000B9765 /* Observer.cpp in Sources */,
 				6C1B04EB236E7F3C000B9765 /* Observable.cpp in Sources */,
+				6C1B04F1236E97E4000B9765 /* Counter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
