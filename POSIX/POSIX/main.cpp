@@ -7,11 +7,6 @@
 //
 
 #include <iostream>
-#include <setjmp.h>
-#include <stddef.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <assert.h>
 #include <sys/_types/_offsetof.h>
 #include "error.hpp"
 #include <pthread.h>
@@ -21,7 +16,6 @@ static int flags = 0;
 void seconds() {
     flags++;
     longjmp(buf, flags);
-    printf("111111111 \n");
 }
 
 void first() {
@@ -66,6 +60,22 @@ void *clock_handler(void *buffer) {
 
 int main(int argc, const char * argv[]) {
     
+    {
+        err_abort(1,"1231");
+//        errno_abort("a");
+    }
+    return 0;
+    {
+        int status = 0;
+        pthread_t thread = nullptr;
+        status = pthread_join(thread, NULL);
+        /// 获取error输出
+        if (status != 0) {
+            fprintf(stderr, "error = %d, info = %s \n", status, strerror(status));
+        }
+    }
+    
+    return 0;
     
     /// 线程版clock
     {

@@ -10,6 +10,25 @@
 #define error_hpp
 
 #include <stdio.h>
+#include <errno.h>
 #include <unistd.h>
+#include <setjmp.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <assert.h>
+
+#define ERRORNO errno
+
+#define err_abort(code,text)  do {                                                   \
+                                   fprintf(stderr, "%s at \"%s\": %d: %s \n",        \
+                                   text, __FILE__,__LINE__,strerror(code));          \
+                                 }while(0)
+
+#define errno_abort(text) do {                                                        \
+                                    fprintf(stderr, "%s at \"%s\": %d: %s \n",        \
+                                    text, __FILE__,__LINE__,strerror(ERRORNO));         \
+                                    abort(0);                                         \
+}while(0)
 
 #endif /* error_hpp */
