@@ -47,7 +47,7 @@ void testUnorder_set() {
     });
 }
 
-int main() {
+int main123456() {
     testUnorder_set();
     return 0;
     testArray();

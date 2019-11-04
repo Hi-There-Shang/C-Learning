@@ -39,8 +39,17 @@ struct user {
     double prices;
 };
 
-int main111(int argc, const char * argv[]) {
+int main(int argc, const char * argv[]) {
     
+    {
+        char lines[512] = "1-2-3";
+        int num1;
+        int num2;
+//        scanf("%s", lines);
+        sscanf(lines, "%d-%d", &num1, &num2);
+        std::cout << lines << "------" << num1 << "--------" << num2 << std::endl;
+    }
+    return 0;
     {
         char buff[1024];
         
