@@ -14,6 +14,7 @@
 #include <assert.h>
 #include <sys/_types/_offsetof.h>
 #include "error.hpp"
+#include <pthread.h>
 
 static jmp_buf buf;
 static int flags = 0;
@@ -41,7 +42,81 @@ struct user {
     double prices;
 };
 
+struct alarm_t {
+    char message[64];
+    int seconds;
+};
+
+void *clock_handler(void *buffer) {
+    char retBuffer[128] = "执行结束";
+//    pthread_t current = pthread_self();
+//    std::cout << "当前线程" << current->__sig << std::endl;
+    
+    alarm_t *alarm = static_cast<alarm_t *>(buffer);
+    int status = 0;
+    status = pthread_detach(pthread_self());
+    if (status != 0) {
+        assert(false);
+    }
+    sleep(alarm->seconds);
+    printf("子线程 seconds= %d %s \n", alarm->seconds, alarm->message);
+//    free(alarm);
+    pthread_exit(retBuffer);
+}
+
 int main(int argc, const char * argv[]) {
+    
+    
+    /// 线程版clock
+    {
+        
+        pthread_t current = pthread_self();
+        std::cout << "主线程" << current->__sig << std::endl;
+        /// 数据
+        alarm_t *alarm;
+        /// 线程
+        pthread_t clock_thead;
+        /// stdin读取的数据
+        char lines[128];
+        /// 状态
+        int status = 0;
+        
+        while (1) {
+            /// 读取数据
+            if (fgets(lines, sizeof(lines), stdin) == NULL) {
+                assert(false);
+            }
+            if (strlen(lines) < 2) {
+                printf("输入有误 请输入加空格: ");
+                continue;
+            }
+            alarm = (alarm_t*)malloc(sizeof(alarm_t));
+            if (alarm == nullptr) {
+                assert(false);
+            }
+            
+            
+            printf("lines == %s \n", lines);
+            if (sscanf(lines, "%d, %64[^\n]", &alarm->seconds, alarm->message) < 2) {
+                printf("message %d === %s \n", alarm->seconds, alarm->message);
+                fprintf(stderr, "error input \n");
+                free(alarm);
+            }
+            status = pthread_create(&clock_thead, NULL, clock_handler, alarm);
+            if (status != 0) {
+                free(alarm);
+                assert(false);
+            }
+            
+        }
+        
+        
+        
+    }
+    
+    return 0;
+    
+    ///  进程版clock
     {
         int status;
         char lines[128];
