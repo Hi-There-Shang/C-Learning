@@ -58,10 +58,48 @@ void *clock_handler(void *buffer) {
     pthread_exit(retBuffer);
 }
 
+void *thread_handler(void *buffer) {
+    char *message = static_cast<char *>(buffer);
+    const char *buf = "son thread";
+    printf("执行子线程 %s \n", message);
+    sleep(2);
+    return (void *)buf;
+}
+
 int main(int argc, const char * argv[]) {
     
     {
-        err_abort(1,"1231");
+        pthread_t thread;
+        char buffer[256] = "this join thread";
+        int status = 0;
+        
+        pthread_create(&thread, NULL, thread_handler, buffer);
+        void *thread_result = nullptr;
+        status = pthread_join(thread, &thread_result);
+        sleep(3);
+        if (status != 0) {
+            err_abort(status, "Create thread");
+        }
+        fprintf(stdout,"%s \n", static_cast<char *>(thread_result));
+        
+    }
+    return 0;
+    {
+        /*
+         api
+         */
+//        pthread_equal(<#pthread_t _Nullable#>, <#pthread_t _Nullable#>)
+//        pthread_create(<#pthread_t  _Nullable * _Nonnull#>, <#const pthread_attr_t * _Nullable#>, <#void * _Nullable (* _Nonnull)(void * _Nullable)#>, <#void * _Nullable#>)
+//        pthread_self()
+//        sched_yield()
+        
+    }
+    return 0;
+    {
+        pthread_key_t key;
+//        pthread_setspecific(<#pthread_key_t#>, <#const void * _Nullable#>)
+//        pthread_getspecific(<#pthread_key_t#>)
+//        err_abort(1,"1231");
 //        errno_abort("a");
     }
     return 0;
