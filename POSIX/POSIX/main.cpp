@@ -65,9 +65,27 @@ void *thread_handler(void *buffer) {
     sleep(2);
     return (void *)buf;
 }
+#include "Mutex.hpp"
 
 int main(int argc, const char * argv[]) {
     
+    {
+        using namespace Thread;
+        using namespace boost;
+        typedef shared_ptr<Tag> tag_share_ptr;
+//        Tag tag = {PTHREAD_MUTEX_INITIALIZER, 0};
+        tag_share_ptr tag = shared_ptr<Tag>(new Tag());
+        int status = 0;
+        status = pthread_mutex_init(&tag->mutex, NULL);
+        if (status != 0) {
+            err_abort(status, "mutex initial error");
+        }
+        status = pthread_mutex_destroy(&tag->mutex);
+        if (status != 0) {
+            err_abort(status, "mutex destory error");
+        }
+    }
+    return 0;
     {
         pthread_t thread;
         char buffer[256] = "this join thread";
@@ -75,8 +93,10 @@ int main(int argc, const char * argv[]) {
         
         pthread_create(&thread, NULL, thread_handler, buffer);
         void *thread_result = nullptr;
+        sleep(5);
+        /// join 线程就已经开始执行了
         status = pthread_join(thread, &thread_result);
-        sleep(3);
+        /// 等待线程执行完毕
         if (status != 0) {
             err_abort(status, "Create thread");
         }

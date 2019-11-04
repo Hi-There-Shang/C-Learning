@@ -17,6 +17,9 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <assert.h>
+#include <mutex>
+#include <boost/shared_ptr.hpp>
+#include "Base.hpp"
 
 #define ERRORNO errno
 

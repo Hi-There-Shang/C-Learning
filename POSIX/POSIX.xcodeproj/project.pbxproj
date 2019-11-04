@@ -18,6 +18,8 @@
 		6C1B04FD236EDF81000B9765 /* Tree_Sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04FB236EDF81000B9765 /* Tree_Sort.cpp */; };
 		6C1B0501236EF87A000B9765 /* Share_ptr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B04FF236EF87A000B9765 /* Share_ptr.cpp */; };
 		6C1B0504236F03CE000B9765 /* Boost_array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B0502236F03CE000B9765 /* Boost_array.cpp */; };
+		6C1B050823706720000B9765 /* Mutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B050623706720000B9765 /* Mutex.cpp */; };
+		6C1B050C23706927000B9765 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B050A23706927000B9765 /* Base.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +58,10 @@
 		6C1B0500236EF87A000B9765 /* Share_ptr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Share_ptr.hpp; sourceTree = "<group>"; };
 		6C1B0502236F03CE000B9765 /* Boost_array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Boost_array.cpp; sourceTree = "<group>"; };
 		6C1B0503236F03CE000B9765 /* Boost_array.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Boost_array.hpp; sourceTree = "<group>"; };
+		6C1B050623706720000B9765 /* Mutex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mutex.cpp; sourceTree = "<group>"; };
+		6C1B050723706720000B9765 /* Mutex.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mutex.hpp; sourceTree = "<group>"; };
+		6C1B050A23706927000B9765 /* Base.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
+		6C1B050B23706927000B9765 /* Base.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Base.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 		6C1B04CF236E5CFE000B9765 = {
 			isa = PBXGroup;
 			children = (
+				6C1B050523706711000B9765 /* Mutex */,
 				6C1B04FE236EF86A000B9765 /* Smart */,
 				6C1B04E5236E7F25000B9765 /* Boost */,
 				6C1B04DA236E5CFF000B9765 /* POSIX */,
@@ -113,8 +120,7 @@
 				6C1B04F3236ED1C1000B9765 /* StockFactory.hpp */,
 				6C1B04F5236ED1CB000B9765 /* Stock.cpp */,
 				6C1B04F6236ED1CB000B9765 /* Stock.hpp */,
-				6C1B04F8236ED20C000B9765 /* Traits.cpp */,
-				6C1B04F9236ED20C000B9765 /* Traits.hpp */,
+				6C1B050923706915000B9765 /* Core */,
 			);
 			path = Boost;
 			sourceTree = "<group>";
@@ -128,6 +134,26 @@
 				6C1B0503236F03CE000B9765 /* Boost_array.hpp */,
 			);
 			path = Smart;
+			sourceTree = "<group>";
+		};
+		6C1B050523706711000B9765 /* Mutex */ = {
+			isa = PBXGroup;
+			children = (
+				6C1B050623706720000B9765 /* Mutex.cpp */,
+				6C1B050723706720000B9765 /* Mutex.hpp */,
+			);
+			path = Mutex;
+			sourceTree = "<group>";
+		};
+		6C1B050923706915000B9765 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				6C1B04F8236ED20C000B9765 /* Traits.cpp */,
+				6C1B04F9236ED20C000B9765 /* Traits.hpp */,
+				6C1B050A23706927000B9765 /* Base.cpp */,
+				6C1B050B23706927000B9765 /* Base.hpp */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,8 +220,10 @@
 				6C1B04FA236ED20C000B9765 /* Traits.cpp in Sources */,
 				6C1B04E8236E7F33000B9765 /* Observer.cpp in Sources */,
 				6C1B0504236F03CE000B9765 /* Boost_array.cpp in Sources */,
+				6C1B050C23706927000B9765 /* Base.cpp in Sources */,
 				6C1B04F4236ED1C1000B9765 /* StockFactory.cpp in Sources */,
 				6C1B04F7236ED1CB000B9765 /* Stock.cpp in Sources */,
+				6C1B050823706720000B9765 /* Mutex.cpp in Sources */,
 				6C1B04EB236E7F3C000B9765 /* Observable.cpp in Sources */,
 				6C1B04F1236E97E4000B9765 /* Counter.cpp in Sources */,
 			);
