@@ -10,6 +10,8 @@
 #include <setjmp.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <assert.h>
 #include <sys/_types/_offsetof.h>
 #include "error.hpp"
 
@@ -40,7 +42,56 @@ struct user {
 };
 
 int main(int argc, const char * argv[]) {
-    
+    {
+        int status;
+        char lines[128];
+        int seconds = 0;
+        pid_t pid;
+        char message[64];
+        
+        /// 死循环
+        while (1) {
+            printf("Alarm> ");
+            /// 读取用户输入
+            if (fgets(lines, sizeof(lines), stdin) == NULL) {
+                /// 未输入 直接退出
+                exit(0);
+            }
+            /// 判断写入数据的长度
+            if (strlen(lines) <= 1) {
+                continue;
+            }
+            
+            /// 格式化用户输入
+            if (sscanf(lines, "%d %64[^\n]", &seconds, message) < 2) {
+                fprintf(stderr, "error \n");
+            } else {
+                /// 开启子进程
+                pid = fork();
+                /// 如果是当前进程 就失败了
+                if (pid == (pid_t) - 1) {
+                    assert(false);
+                }
+                
+                /// pid == 0 代表是子进程
+                if (pid == 0) {
+                    /// 睡眠
+                    sleep(seconds);
+                    printf("%d -- %s", seconds, message);
+                } else {
+                    /// 父进程 循环
+                    do {
+                        pid = waitpid((pid_t) - 1, NULL, WNOHANG);
+                        if (pid == (pid_t) - 1) {
+                            assert(false);
+                        }
+                    } while (pid  != 0);
+                }
+            }
+            
+        }
+    }
+    return 0;
     {
         char lines[512] = "1-2-3";
         int num1;
