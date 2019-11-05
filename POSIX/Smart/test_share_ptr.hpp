@@ -69,7 +69,15 @@ void delete_func(void* ptr) {
 void test_share_ptr_delete() {
     /// 指定了 delete 函数
     /// 在函数内部 必须delete ptr 不然会内存泄露
+    /// 此 delete_func 仅作用于 new book(1,2)
     boost::shared_ptr<book> delete_ptr(new book(1,2), delete_func);
+    /// 重置 指向新的内存空间
+    /// 内存管理还是由share_ptr负责
+    print(delete_ptr);
+    delete_ptr.reset(new book(100,200));
+    print(delete_ptr);
+    /// reset就清空了
+    delete_ptr.reset();
     print(delete_ptr);
 }
 
