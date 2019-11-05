@@ -67,7 +67,7 @@ void *thread_handler(void *buffer) {
 }
 #include "Mutex.hpp"
 
-int main(int argc, const char * argv[]) {
+int main232341(int argc, const char * argv[]) {
     
     {
         using namespace Thread;

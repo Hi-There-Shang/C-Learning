@@ -19,6 +19,11 @@
 #include <assert.h>
 #include <mutex>
 #include <boost/shared_ptr.hpp>
+#include <boost/scoped_ptr.hpp>
+#include <boost/make_unique.hpp>
+#include <iostream>
+#include <string>
+#include <assert.h>
 #include "Base.hpp"
 
 #define ERRORNO errno

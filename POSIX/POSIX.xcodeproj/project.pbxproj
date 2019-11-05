@@ -20,6 +20,8 @@
 		6C1B0504236F03CE000B9765 /* Boost_array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B0502236F03CE000B9765 /* Boost_array.cpp */; };
 		6C1B050823706720000B9765 /* Mutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B050623706720000B9765 /* Mutex.cpp */; };
 		6C1B050C23706927000B9765 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B050A23706927000B9765 /* Base.cpp */; };
+		6C1B050F23718FAB000B9765 /* auto_ptr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B050D23718FAB000B9765 /* auto_ptr.cpp */; };
+		6C1B051223718FE9000B9765 /* scope_ptr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B051023718FE9000B9765 /* scope_ptr.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +64,10 @@
 		6C1B050723706720000B9765 /* Mutex.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mutex.hpp; sourceTree = "<group>"; };
 		6C1B050A23706927000B9765 /* Base.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		6C1B050B23706927000B9765 /* Base.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Base.hpp; sourceTree = "<group>"; };
+		6C1B050D23718FAB000B9765 /* auto_ptr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = auto_ptr.cpp; sourceTree = "<group>"; };
+		6C1B050E23718FAB000B9765 /* auto_ptr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = auto_ptr.hpp; sourceTree = "<group>"; };
+		6C1B051023718FE9000B9765 /* scope_ptr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = scope_ptr.cpp; sourceTree = "<group>"; };
+		6C1B051123718FE9000B9765 /* scope_ptr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = scope_ptr.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,10 @@
 				6C1B0500236EF87A000B9765 /* Share_ptr.hpp */,
 				6C1B0502236F03CE000B9765 /* Boost_array.cpp */,
 				6C1B0503236F03CE000B9765 /* Boost_array.hpp */,
+				6C1B050D23718FAB000B9765 /* auto_ptr.cpp */,
+				6C1B050E23718FAB000B9765 /* auto_ptr.hpp */,
+				6C1B051023718FE9000B9765 /* scope_ptr.cpp */,
+				6C1B051123718FE9000B9765 /* scope_ptr.hpp */,
 			);
 			path = Smart;
 			sourceTree = "<group>";
@@ -214,7 +224,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C1B0501236EF87A000B9765 /* Share_ptr.cpp in Sources */,
+				6C1B050F23718FAB000B9765 /* auto_ptr.cpp in Sources */,
 				6C1B04EE236E95C5000B9765 /* Foo.cpp in Sources */,
+				6C1B051223718FE9000B9765 /* scope_ptr.cpp in Sources */,
 				6C1B04DC236E5CFF000B9765 /* main.cpp in Sources */,
 				6C1B04FD236EDF81000B9765 /* Tree_Sort.cpp in Sources */,
 				6C1B04FA236ED20C000B9765 /* Traits.cpp in Sources */,
