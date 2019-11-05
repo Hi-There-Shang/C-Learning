@@ -23,6 +23,7 @@
 		6C1B050F23718FAB000B9765 /* auto_ptr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B050D23718FAB000B9765 /* auto_ptr.cpp */; };
 		6C1B051223718FE9000B9765 /* scope_ptr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B051023718FE9000B9765 /* scope_ptr.cpp */; };
 		6C1B05162371933D000B9765 /* user.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05142371933D000B9765 /* user.cpp */; };
+		6C1B051923719B31000B9765 /* test_share_ptr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B051723719B31000B9765 /* test_share_ptr.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +72,8 @@
 		6C1B051123718FE9000B9765 /* scope_ptr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = scope_ptr.hpp; sourceTree = "<group>"; };
 		6C1B05142371933D000B9765 /* user.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = user.cpp; sourceTree = "<group>"; };
 		6C1B05152371933D000B9765 /* user.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = user.hpp; sourceTree = "<group>"; };
+		6C1B051723719B31000B9765 /* test_share_ptr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_share_ptr.cpp; sourceTree = "<group>"; };
+		6C1B051823719B31000B9765 /* test_share_ptr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = test_share_ptr.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 				6C1B050E23718FAB000B9765 /* auto_ptr.hpp */,
 				6C1B051023718FE9000B9765 /* scope_ptr.cpp */,
 				6C1B051123718FE9000B9765 /* scope_ptr.hpp */,
+				6C1B051723719B31000B9765 /* test_share_ptr.cpp */,
+				6C1B051823719B31000B9765 /* test_share_ptr.hpp */,
 			);
 			path = Smart;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				6C1B04EE236E95C5000B9765 /* Foo.cpp in Sources */,
 				6C1B051223718FE9000B9765 /* scope_ptr.cpp in Sources */,
 				6C1B04DC236E5CFF000B9765 /* main.cpp in Sources */,
+				6C1B051923719B31000B9765 /* test_share_ptr.cpp in Sources */,
 				6C1B04FD236EDF81000B9765 /* Tree_Sort.cpp in Sources */,
 				6C1B04FA236ED20C000B9765 /* Traits.cpp in Sources */,
 				6C1B04E8236E7F33000B9765 /* Observer.cpp in Sources */,

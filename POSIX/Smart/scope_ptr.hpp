@@ -142,7 +142,7 @@ void thread___() {
     print("线程执行完毕");
 }
 
-int main() {
+int main11111111() {
     thread___();
 //    test_share_ptr();
 //    test_uniqe_ptr();
