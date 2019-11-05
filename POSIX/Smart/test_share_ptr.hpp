@@ -84,7 +84,7 @@ void test_share_ptr_delete() {
 void test_container() {
     typedef boost::shared_ptr<__user> book_pointer;
     /// 容器会保持一份引用计数
-    /// typedef std::vector<boost::share_ptr<__user>> Books;
+    /// typedef std::vector<boost::shared_ptr<__user>> Books;
     ///
     /// 容器不会增加引用计数
     typedef std::vector<boost::weak_ptr<__user>> Books;
@@ -106,10 +106,27 @@ void test_container() {
     }
 }
 
+
+void test_share_ptr_unique() {
+    typedef boost::shared_ptr<__user> user_pointer;
+    user_pointer user = boost::make_shared<__user>("1234");
+    /// 判断引用计数是不是1
+    /// 只有一个对象持有
+    /// 多线程可以处理数据同步---->1 当前如果只有一个对象持有 可以处理数据,多个引用 就加锁---->
+    user_pointer u1 = user;
+    if (user.unique()) {
+        print("只有一个对象持有");
+    } else {
+        print("多个对象持有");
+    }
+}
+
+
 int main() {
 //    test_thread();
 //    test_share_ptr_delete();
     test_container();
+//    test_share_ptr_unique();
     return 0;
 }
 
