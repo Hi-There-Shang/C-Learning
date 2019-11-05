@@ -25,34 +25,37 @@ using namespace std;
 
 typedef boost::shared_ptr<book> book_pointer;
 
-void test_weak_share() {
-
+/*
+ 传递值传递 weak_ptr
+ 引用计数  参数传递 也会加1
+  ----- 不能传递引用????
+ */
+void test_weak_share(boost::weak_ptr<book> weakPtr) {
+    sleep(3);
+     printf("子线程 use_count = %ld \n", weakPtr.use_count());
 }
 
 void test_thread() {
+    book_pointer book(new struct book(12, 100));
+    std::thread t(test_weak_share, book);
+    printf("主线程 use_count = %ld \n", book.use_count());
+    book.reset();
+    printf("主线程 use_count = %ld \n", book.use_count());
     
+    /*
+     join 之前 会释放
+     join 之后  join会卡主线程 知道子线程执行完成
+     */
+    t.join();
+    
+    printf("主线程 use_count = %ld \n", book.use_count());
+    book.reset();
+    printf("主线程 use_count = %ld \n", book.use_count());
+    print("done");
 }
 
 
-struct teacher {
-    int age;
-    int height;
-    teacher(int age, int height): age(age), height(height) {}
-};
-
-class student {
-public:
-    student(string name, string language): m_name(name), m_language(language) {}
-    
-private:
-    string m_name;
-    string m_language;
-};
-
 int main() {
-    book_pointer book(new struct book(12, 100));
-//    boost::shared_ptr<teacher> tea(new teacher(1,2));
-    new student("123","321");
     test_thread();
     return 0;
 }
