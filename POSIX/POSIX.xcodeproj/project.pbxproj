@@ -96,6 +96,8 @@
 		6C1B04CF236E5CFE000B9765 = {
 			isa = PBXGroup;
 			children = (
+				6C1B04E3236E5D0E000B9765 /* error.hpp */,
+				6C1B05202371BD82000B9765 /* Algorithm */,
 				6C1B050523706711000B9765 /* Mutex */,
 				6C1B04FE236EF86A000B9765 /* Smart */,
 				6C1B04E5236E7F25000B9765 /* Boost */,
@@ -116,9 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				6C1B04DB236E5CFF000B9765 /* main.cpp */,
-				6C1B04E3236E5D0E000B9765 /* error.hpp */,
-				6C1B04FB236EDF81000B9765 /* Tree_Sort.cpp */,
-				6C1B04FC236EDF81000B9765 /* Tree_Sort.hpp */,
 				6C1B051A2371B940000B9765 /* alarm.cpp */,
 				6C1B051B2371B940000B9765 /* alarm.hpp */,
 				6C1B051D2371B948000B9765 /* alarm_data.cpp */,
@@ -192,6 +191,15 @@
 				6C1B05152371933D000B9765 /* user.hpp */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		6C1B05202371BD82000B9765 /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				6C1B04FB236EDF81000B9765 /* Tree_Sort.cpp */,
+				6C1B04FC236EDF81000B9765 /* Tree_Sort.hpp */,
+			);
+			path = Algorithm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
