@@ -23,7 +23,37 @@ namespace __Print {
 using namespace __Print;
 using namespace std;
 
+typedef boost::shared_ptr<book> book_pointer;
+
+void test_weak_share() {
+
+}
+
+void test_thread() {
+    
+}
+
+
+struct teacher {
+    int age;
+    int height;
+    teacher(int age, int height): age(age), height(height) {}
+};
+
+class student {
+public:
+    student(string name, string language): m_name(name), m_language(language) {}
+    
+private:
+    string m_name;
+    string m_language;
+};
+
 int main() {
+    book_pointer book(new struct book(12, 100));
+//    boost::shared_ptr<teacher> tea(new teacher(1,2));
+    new student("123","321");
+    test_thread();
     return 0;
 }
 

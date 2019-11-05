@@ -19,7 +19,7 @@ struct __user: Base {
     ~__user() {}
 };
 
-struct book {
+struct book: Base {
     double m_price;
     double m_page;
     book(int price, int page): m_price(price), m_page(page) {}
