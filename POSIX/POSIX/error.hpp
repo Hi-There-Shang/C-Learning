@@ -25,6 +25,7 @@
 #include <boost/make_shared.hpp>
 #include <thread>
 #include <iostream>
+#include <vector>
 #include <string>
 #include <assert.h>
 #include "Base.hpp"

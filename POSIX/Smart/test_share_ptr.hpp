@@ -81,9 +81,35 @@ void test_share_ptr_delete() {
     print(delete_ptr);
 }
 
+void test_container() {
+    typedef boost::shared_ptr<__user> book_pointer;
+    /// 容器会保持一份引用计数
+    /// typedef std::vector<boost::share_ptr<__user>> Books;
+    ///
+    /// 容器不会增加引用计数
+    typedef std::vector<boost::weak_ptr<__user>> Books;
+    Books books;
+    for (string str : {"1","2","3","4","5"}) {
+        book_pointer _book = boost::make_shared<__user>(str);
+        print(_book.use_count());
+        /// 传值  引用计数会加1
+        /// 容器会保持一份引用计数
+        /// 针对于  std::vector<boost::share_ptr<__user>> Books;
+        /// 对象的生命周期延长----> effective c++
+        ///
+        
+        /// 针对于 weak_ptr 容器不会持有引用计数
+        boost::weak_ptr<__user> weak_user = _book;
+        books.push_back(weak_user);
+        print("引用计数");
+        print(_book.use_count());
+    }
+}
+
 int main() {
 //    test_thread();
-    test_share_ptr_delete();
+//    test_share_ptr_delete();
+    test_container();
     return 0;
 }
 
