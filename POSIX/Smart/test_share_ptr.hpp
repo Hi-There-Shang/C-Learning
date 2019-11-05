@@ -55,8 +55,27 @@ void test_thread() {
 }
 
 
+typedef void(*DeleteFunc)(void *);
+
+void delete_func(void* ptr) {
+    print("delete function");
+    print(ptr);
+    book *_book = static_cast<book *>(ptr);
+    print(_book->m_page);
+    print(_book->m_price);
+    delete _book;
+}
+
+void test_share_ptr_delete() {
+    /// 指定了 delete 函数
+    /// 在函数内部 必须delete ptr 不然会内存泄露
+    boost::shared_ptr<book> delete_ptr(new book(1,2), delete_func);
+    print(delete_ptr);
+}
+
 int main() {
-    test_thread();
+//    test_thread();
+    test_share_ptr_delete();
     return 0;
 }
 
