@@ -21,6 +21,9 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/scoped_ptr.hpp>
 #include <boost/make_unique.hpp>
+#include <boost/weak_ptr.hpp>
+#include <boost/make_shared.hpp>
+#include <thread>
 #include <iostream>
 #include <string>
 #include <assert.h>
