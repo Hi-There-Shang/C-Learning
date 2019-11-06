@@ -122,7 +122,7 @@ void test_share_ptr_unique() {
 }
 
 
-int main() {
+int main12323243() {
 //    test_thread();
 //    test_share_ptr_delete();
     test_container();

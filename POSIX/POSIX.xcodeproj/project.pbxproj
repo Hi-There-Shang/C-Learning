@@ -26,6 +26,7 @@
 		6C1B051923719B31000B9765 /* test_share_ptr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B051723719B31000B9765 /* test_share_ptr.cpp */; };
 		6C1B051C2371B940000B9765 /* alarm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B051A2371B940000B9765 /* alarm.cpp */; };
 		6C1B051F2371B948000B9765 /* alarm_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B051D2371B948000B9765 /* alarm_data.cpp */; };
+		6C1B05242372D66C000B9765 /* Boost_String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05222372D66C000B9765 /* Boost_String.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +81,8 @@
 		6C1B051B2371B940000B9765 /* alarm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = alarm.hpp; sourceTree = "<group>"; };
 		6C1B051D2371B948000B9765 /* alarm_data.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = alarm_data.cpp; sourceTree = "<group>"; };
 		6C1B051E2371B948000B9765 /* alarm_data.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = alarm_data.hpp; sourceTree = "<group>"; };
+		6C1B05222372D66C000B9765 /* Boost_String.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Boost_String.cpp; sourceTree = "<group>"; };
+		6C1B05232372D66C000B9765 /* Boost_String.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Boost_String.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				6C1B04E3236E5D0E000B9765 /* error.hpp */,
+				6C1B05212372D651000B9765 /* String */,
 				6C1B05202371BD82000B9765 /* Algorithm */,
 				6C1B050523706711000B9765 /* Mutex */,
 				6C1B04FE236EF86A000B9765 /* Smart */,
@@ -202,6 +206,15 @@
 			path = Algorithm;
 			sourceTree = "<group>";
 		};
+		6C1B05212372D651000B9765 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				6C1B05222372D66C000B9765 /* Boost_String.cpp */,
+				6C1B05232372D66C000B9765 /* Boost_String.hpp */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,6 +286,7 @@
 				6C1B051C2371B940000B9765 /* alarm.cpp in Sources */,
 				6C1B050C23706927000B9765 /* Base.cpp in Sources */,
 				6C1B04F4236ED1C1000B9765 /* StockFactory.cpp in Sources */,
+				6C1B05242372D66C000B9765 /* Boost_String.cpp in Sources */,
 				6C1B04F7236ED1CB000B9765 /* Stock.cpp in Sources */,
 				6C1B050823706720000B9765 /* Mutex.cpp in Sources */,
 				6C1B04EB236E7F3C000B9765 /* Observable.cpp in Sources */,

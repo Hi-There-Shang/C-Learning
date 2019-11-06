@@ -23,6 +23,8 @@
 #include <boost/make_unique.hpp>
 #include <boost/weak_ptr.hpp>
 #include <boost/make_shared.hpp>
+#include <boost/lexical_cast.hpp>
+#include <boost/lexical_cast/try_lexical_convert.hpp>
 #include <thread>
 #include <iostream>
 #include <vector>
