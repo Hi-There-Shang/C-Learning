@@ -31,19 +31,41 @@ void* __counter_thread(void *buffer)
     int status = 0;
     int spin = 0;
     
-    pthread_exit(nullptr);
+    while (time(NULL) <= __end_time) {
+        status = pthread_mutex_lock(&__mutex);
+        ASSERT(status);
+        for (spin = 0; spin < SPIN; spin++) {
+            __counter++;
+        }
+        status = pthread_mutex_unlock(&__mutex);
+        ASSERT(status);
+        sleep(1);
+    }
+    printf("counter == %ld \n", __counter);
+    return nullptr;
 }
 
 void* __monitor_thread(void *buffer)
 {
-    pthread_exit(nullptr);
+    int status = 0;
+    int misses = 0;
+    
+    while (time(NULL) < __end_time) {
+        sleep(3);
+        status = pthread_mutex_trylock(&__mutex);
+        if (status != EBUSY) {
+            printf("monitor Counter == %ld \n", __counter/SPIN);
+            status = pthread_mutex_unlock(&__mutex);
+            ASSERT(status);
+        } else {
+            misses++;
+        }
+    }
+    printf("misses count = %d \n", misses);
+    return nullptr;
 }
 
 void test_counter() {
-    
-}
-
-int main() {
     int status = 0;
     pthread_t counter_thread;
     pthread_t monitor_thread;
@@ -57,6 +79,10 @@ int main() {
     ASSERT(status);
     status = pthread_join(monitor_thread, NULL);
     ASSERT(status);
+}
+
+int main() {
+    test_counter();
     return 0;
 }
 
