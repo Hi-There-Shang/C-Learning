@@ -22,7 +22,24 @@ namespace __Print {
         T tmp;
         return boost::conversion::try_lexical_convert(name, tmp);
     }
+    
+    template <class T>
+    struct outable {
+        friend std::ostream& operator<<(std::ostream &os, const T&){
+            os << typeid(T).name();
+            return os;
+        }
+    };
+    
 }
+
+struct demo_class: public __Print::outable<demo_class> {
+//    friend std::ostream& operator<<(std::ostream &os, const demo_class &demo) {
+//        os << "demo_class'name";
+//        return os;
+//    }
+};
+
 using namespace __Print;
 using namespace boost;
 void test_boost_string() {
@@ -30,6 +47,8 @@ void test_boost_string() {
      ///  short类型也不匹配
      ///std::string name = "123.1";
     
+    
+        std::cout << lexical_cast<std::string>(demo_class()) << std::endl;
     
     std::string name = "123.1";
     int num3;
