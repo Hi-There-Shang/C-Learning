@@ -94,12 +94,13 @@ void test_alarm() {
             err_abort(1, "error init");
         }
         
-        /// 格式化数据   定时器的时间 和 输入的message信息
+        /// 格式化数据   定时器的时间 和 输入的message信息--->写入用户数据
         if (sscanf(line, "%d %64[^\n]", &alarm->seconds, alarm->message) < 2) {
             fprintf(stderr, "error input \n");
             free(alarm);
         } else {
             /// 加锁
+            /// 加锁 同步数据---->全局区的 alarm_list ---->判断时间--->
             status = pthread_mutex_lock(&mutex);
             if (status != 0) {
                 err_abort(status, "lock error");
@@ -109,16 +110,26 @@ void test_alarm() {
             alarm->time = time(NULL) + alarm->seconds;
             
             /// 第一次 为空
+            /*
+             地址--->指向同一片内存空间
+             */
             last = &alarm_list;
+            ///
+            ///
+            /*
+             *alarm, **last, *next;
+             */
+            
             printf("主线程 %p \n", alarm_list);
-            next = *last;
+            next = *last; // head指针
             while (next != nullptr) {
-                /// 时间判断
+                /// 时间判断--->时间大的往后排
                 if (next->time >= alarm->time) {
                     alarm->link = next;
                     *last = alarm;
                     break;
                 }
+                
                 last = &next->link;
                 next = next->link;
             }
@@ -126,6 +137,7 @@ void test_alarm() {
             /// 赋值
             if (next == nullptr) {
                 *last = alarm;
+                printf("--赋值--- %p \n", alarm_list);
                 alarm->link = nullptr;
             }
             
@@ -144,7 +156,25 @@ void test_alarm() {
     }
 }
 
+struct __book {
+    int age;
+    int time;
+    __book *link;
+};
+
+static __book *book_list;
+
 int main() {
+    __book *book, **books, *next;
+    book = (__book *)malloc(sizeof(__book));
+    book->age = 10;
+    book->time = 11;
+    book->link = nullptr;
+    books = &book_list;
+//    next = *books;
+//    *books = book;
+    printf("%p \n", book_list);
+    
     test_alarm();
     return 0;
 }
