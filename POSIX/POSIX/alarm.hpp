@@ -164,7 +164,7 @@ struct __book {
 
 static __book *book_list;
 
-int main() {
+int main321123() {
     __book *book, **books, *next;
     book = (__book *)malloc(sizeof(__book));
     book->age = 10;
