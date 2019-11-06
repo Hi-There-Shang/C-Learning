@@ -28,6 +28,7 @@
 #include <boost/xpressive/xpressive.hpp>
 #include <boost/assert.hpp>
 #include <thread>
+#include <pthread.h>
 #include <iostream>
 #include <vector>
 #include <string>

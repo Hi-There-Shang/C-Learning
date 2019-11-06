@@ -91,8 +91,8 @@ void test_xpressive_regex() {
         regex_match("abc", regex);
 }
 
-int main() {
-        BOOST_ASSERT_MSG(false, "error");
+int main12345678909() {
+//        BOOST_ASSERT_MSG(false, "error");
     test_boost_string();
     return 0;
 }
