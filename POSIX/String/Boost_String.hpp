@@ -12,35 +12,35 @@
 #include "error.hpp"
 #include <stdio.h>
 
-namespace __Print {
-    template <class T>
-    void print(T &&value) {
-        std::cout << value << std::endl;
-    }
-    template <class T>
-    inline bool valid_number(const std::string &name) {
-        T tmp;
-        return boost::conversion::try_lexical_convert(name, tmp);
-    }
-    
-    template <class T>
-    struct outable {
-        friend std::ostream& operator<<(std::ostream &os, const T&){
-            os << typeid(T).name();
-            return os;
-        }
-    };
-    
+//namespace __Print {
+template <class T>
+void print(T &&value) {
+    std::cout << value << std::endl;
+}
+template <class T>
+inline bool valid_number(const std::string &name) {
+    T tmp;
+    return boost::conversion::try_lexical_convert(name, tmp);
 }
 
-struct demo_class: public __Print::outable<demo_class> {
+template <class T>
+struct outable {
+    friend std::ostream& operator<<(std::ostream &os, const T&){
+        os << typeid(T).name();
+        return os;
+        }
+        };
+        
+        //            }
+
+struct demo_class: public outable<demo_class> {
 //    friend std::ostream& operator<<(std::ostream &os, const demo_class &demo) {
 //        os << "demo_class'name";
 //        return os;
 //    }
 };
 
-using namespace __Print;
+//using namespace __Print;
 using namespace boost;
 void test_boost_string() {
      /// 类型不匹配 int 类型不匹配
@@ -81,8 +81,18 @@ void test_boost_string() {
     print(num3);
 //    print(num4);
 }
+        
+using namespace boost::xpressive;
+void test_xpressive_regex() {
+      cregex regex = cregex::compile("a.c");
+        sregex sre = sregex::compile("a.c");
+        std::string name = "abc";
+        regex_match(name, sre);
+        regex_match("abc", regex);
+}
 
 int main() {
+        BOOST_ASSERT_MSG(false, "error");
     test_boost_string();
     return 0;
 }

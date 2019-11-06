@@ -25,6 +25,8 @@
 #include <boost/make_shared.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/lexical_cast/try_lexical_convert.hpp>
+#include <boost/xpressive/xpressive.hpp>
+#include <boost/assert.hpp>
 #include <thread>
 #include <iostream>
 #include <vector>
