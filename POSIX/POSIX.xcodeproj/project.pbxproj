@@ -28,6 +28,7 @@
 		6C1B051F2371B948000B9765 /* alarm_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B051D2371B948000B9765 /* alarm_data.cpp */; };
 		6C1B05242372D66C000B9765 /* Boost_String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05222372D66C000B9765 /* Boost_String.cpp */; };
 		6C1B0527237307BB000B9765 /* Counter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B0525237307BB000B9765 /* Counter.cpp */; };
+		6C1B052B237456FD000B9765 /* Tmp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B0529237456FD000B9765 /* Tmp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -86,6 +87,8 @@
 		6C1B05232372D66C000B9765 /* Boost_String.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Boost_String.hpp; sourceTree = "<group>"; };
 		6C1B0525237307BB000B9765 /* Counter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Counter.cpp; sourceTree = "<group>"; };
 		6C1B0526237307BB000B9765 /* Counter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Counter.hpp; sourceTree = "<group>"; };
+		6C1B0529237456FD000B9765 /* Tmp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tmp.cpp; sourceTree = "<group>"; };
+		6C1B052A237456FD000B9765 /* Tmp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Tmp.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 				6C1B05202371BD82000B9765 /* Algorithm */,
 				6C1B050523706711000B9765 /* Mutex */,
 				6C1B04FE236EF86A000B9765 /* Smart */,
+				6C1B052823745636000B9765 /* Effective */,
 				6C1B04E5236E7F25000B9765 /* Boost */,
 				6C1B04DA236E5CFF000B9765 /* POSIX */,
 				6C1B04D9236E5CFF000B9765 /* Products */,
@@ -220,6 +224,15 @@
 			path = String;
 			sourceTree = "<group>";
 		};
+		6C1B052823745636000B9765 /* Effective */ = {
+			isa = PBXGroup;
+			children = (
+				6C1B0529237456FD000B9765 /* Tmp.cpp */,
+				6C1B052A237456FD000B9765 /* Tmp.hpp */,
+			);
+			path = Effective;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -294,6 +307,7 @@
 				6C1B05242372D66C000B9765 /* Boost_String.cpp in Sources */,
 				6C1B04F7236ED1CB000B9765 /* Stock.cpp in Sources */,
 				6C1B050823706720000B9765 /* Mutex.cpp in Sources */,
+				6C1B052B237456FD000B9765 /* Tmp.cpp in Sources */,
 				6C1B04EB236E7F3C000B9765 /* Observable.cpp in Sources */,
 				6C1B04F1236E97E4000B9765 /* Counter.cpp in Sources */,
 				6C1B051F2371B948000B9765 /* alarm_data.cpp in Sources */,

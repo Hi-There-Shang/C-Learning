@@ -81,7 +81,7 @@ void test_counter() {
     ASSERT(status);
 }
 
-int main() {
+int main1212121() {
     test_counter();
     return 0;
 }
