@@ -21,9 +21,10 @@
 class __Book {
     int age;
 public:
+    friend const __Book operator+(const __Book &lhs, const __Book &rhs);
     __Book(int age): age(age) {}
     
-    __Book(const __Book &book) {
+   inline __Book(const __Book &book) {
         printf("拷贝o构造 \n");
         this->age = book.age;
     }
@@ -65,10 +66,20 @@ const book retBook(const book &b) {
     return b;
 }
 
+/*
+ 返回拷贝构造?
+ 貌似编译器没优化???
+ */
+const book operator+(const book &lhs, const book &rhs) {
+    return book(lhs.age + rhs.age);
+}
+
 int main() {
     book boo(12);
     test_arg(boo);
     book tmp = retBook(boo);
+    
+    book boo1 = tmp + boo;
     return 0;
 }
 
