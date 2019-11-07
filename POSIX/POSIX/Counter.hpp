@@ -39,7 +39,7 @@ void* __counter_thread(void *buffer)
         }
         status = pthread_mutex_unlock(&__mutex);
         ASSERT(status);
-        sleep(1);
+        sleep(3);
     }
     printf("counter == %ld \n", __counter);
     return nullptr;
@@ -51,7 +51,7 @@ void* __monitor_thread(void *buffer)
     int misses = 0;
     
     while (time(NULL) < __end_time) {
-        sleep(3);
+        sleep(1);
         status = pthread_mutex_trylock(&__mutex);
         if (status != EBUSY) {
             printf("monitor Counter == %ld \n", __counter/SPIN);
