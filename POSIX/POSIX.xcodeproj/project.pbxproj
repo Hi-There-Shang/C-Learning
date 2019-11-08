@@ -29,6 +29,7 @@
 		6C1B05242372D66C000B9765 /* Boost_String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05222372D66C000B9765 /* Boost_String.cpp */; };
 		6C1B0527237307BB000B9765 /* Counter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B0525237307BB000B9765 /* Counter.cpp */; };
 		6C1B052B237456FD000B9765 /* Tmp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B0529237456FD000B9765 /* Tmp.cpp */; };
+		6C1B052F2375B9CE000B9765 /* Policies.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B052D2375B9CE000B9765 /* Policies.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,8 @@
 		6C1B0526237307BB000B9765 /* Counter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Counter.hpp; sourceTree = "<group>"; };
 		6C1B0529237456FD000B9765 /* Tmp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tmp.cpp; sourceTree = "<group>"; };
 		6C1B052A237456FD000B9765 /* Tmp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Tmp.hpp; sourceTree = "<group>"; };
+		6C1B052D2375B9CE000B9765 /* Policies.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Policies.cpp; sourceTree = "<group>"; };
+		6C1B052E2375B9CE000B9765 /* Policies.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Policies.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,7 @@
 		6C1B04CF236E5CFE000B9765 = {
 			isa = PBXGroup;
 			children = (
+				6C1B052C2375B9B2000B9765 /* Template */,
 				6C1B04E3236E5D0E000B9765 /* error.hpp */,
 				6C1B05212372D651000B9765 /* String */,
 				6C1B05202371BD82000B9765 /* Algorithm */,
@@ -233,6 +237,15 @@
 			path = Effective;
 			sourceTree = "<group>";
 		};
+		6C1B052C2375B9B2000B9765 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				6C1B052D2375B9CE000B9765 /* Policies.cpp */,
+				6C1B052E2375B9CE000B9765 /* Policies.hpp */,
+			);
+			path = Template;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -304,6 +317,7 @@
 				6C1B051C2371B940000B9765 /* alarm.cpp in Sources */,
 				6C1B050C23706927000B9765 /* Base.cpp in Sources */,
 				6C1B04F4236ED1C1000B9765 /* StockFactory.cpp in Sources */,
+				6C1B052F2375B9CE000B9765 /* Policies.cpp in Sources */,
 				6C1B05242372D66C000B9765 /* Boost_String.cpp in Sources */,
 				6C1B04F7236ED1CB000B9765 /* Stock.cpp in Sources */,
 				6C1B050823706720000B9765 /* Mutex.cpp in Sources */,
