@@ -74,7 +74,7 @@ const book operator+(const book &lhs, const book &rhs) {
     return book(lhs.age + rhs.age);
 }
 
-int main() {
+int main12312312() {
     book boo(12);
     test_arg(boo);
     book tmp = retBook(boo);
