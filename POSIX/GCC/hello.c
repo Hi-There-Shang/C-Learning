@@ -8,7 +8,7 @@
 
 #include "person.c"
 
-int main() {
+int main123454321() {
 //    pipe(<#int *#>)
 //    mmap(NULL, <#size_t#>, <#int#>, <#int#>, <#int#>, <#off_t#>)
 //    creat("<#const char *#>", O_RDWR);
