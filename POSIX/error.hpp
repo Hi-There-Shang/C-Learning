@@ -51,4 +51,12 @@
                                     abort(0);                                         \
 }while(0)
 
+
+namespace _Log_ {
+    template <class T>
+    inline void Log(T &&value) {
+        std::cout << value << std::endl;
+    }
+}
+
 #endif /* error_hpp */
