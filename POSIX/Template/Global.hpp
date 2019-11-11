@@ -151,7 +151,7 @@ void findBestKingPosition(int k, int m) {
     }
 }
 
-int main() {
+int main123445433() {
     findBestKingPosition(0, 0);
     printf("%d  \n", count);
     return 0;

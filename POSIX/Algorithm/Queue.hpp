@@ -20,12 +20,48 @@ struct __node {
 typedef __node Node;
 
 void InitialNode(Node *node) {
-    node = malloc(sizeof(Node));
+    node = (Node *)malloc(sizeof(Node));
+    node->data = 0;
+    node->previous = nullptr;
 }
 
-int main() {
+void insertFront(Node *node, double value) {
+    Node *newnode = (Node *)malloc(sizeof(Node));
+    newnode->data = value;
+    newnode->previous = nullptr;
     
-    return 0;
+    Node *head = node;
+    while (head->previous) {
+        head = head->previous;
+    }
+    printf("front %f \n", newnode->data);
+    head->previous = newnode;
 }
+
+void insertBack(Node **node, double value) {
+//    Node *newnode = (Node *)malloc(sizeof(Node));
+//    newnode->data = value;
+//
+//    newnode->previous = *node;
+//    node = &newnode;
+}
+
+void remove(Node *node, int index) {
+    
+}
+
+void clear(Node *node) {
+    
+}
+
+void printNode(Node *node) {
+    Node *head = node;
+    while (head->previous) {
+        head = head->previous;
+        printf("-- %f \n", head->data);
+    }
+}
+
+
 
 #endif /* Queue_hpp */
