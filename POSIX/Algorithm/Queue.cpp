@@ -8,7 +8,7 @@
 
 #include "Queue.hpp"
 
-int main() {
+int main123123123214131() {
     __node node = {0, nullptr};
     InitialNode(&node);
     
