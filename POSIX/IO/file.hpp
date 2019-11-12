@@ -10,10 +10,7 @@
 #define file_hpp
 
 #include <stdio.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <dirent.h>
+#include "error.hpp"
 
 void testUnix() {
     const char *fileName = "/Users/shangchengcheng/Desktop/123.txt";
@@ -77,6 +74,80 @@ void testUnix() {
     
 //    fdopendir(<#int#>)
     struct dirent *ent = readdir(dir);
+    
+}
+
+#define FTW_F   1
+#define FTW_D   2
+#define FTW_DNR 3
+#define FTW_NS  4
+
+typedef int (*MyFunc)(const char *, const struct stat *, int);
+static MyFunc myFunc;
+
+static long nreg;
+static long ndir;
+static long nblk;
+static long nchr;
+static long nfifo;
+static long nslink;
+static long nsock;
+static long ntot;
+
+
+static char *fullpath;
+static size_t pathLen = 10;
+
+static int doPath(MyFunc func) {
+    struct stat statbuffer;
+    struct dirent *dirp;
+    DIR           *dir;
+    int status;
+    size_t n;
+    
+    status = lstat(fullpath, &statbuffer);
+    if (status < 0) {
+        return func(fullpath, &statbuffer, FTW_NS);
+    }
+    
+    if (S_ISDIR(statbuffer.st_mode) == 0) {
+        return func(fullpath, &statbuffer, FTW_F);
+    }
+    
+    if ((status = func(fullpath, &statbuffer, FTW_D) != 0)) {
+        return status;
+    }
+    
+    n = strlen(fullpath);
+    
+    
+    return 0;
+};
+
+static int myftw(char *filePath, MyFunc func) {
+    fullpath = (char *)malloc(pathLen);
+    STATIC_MALLOC(fullpath == NULL,"malloc error");
+    if (pathLen <= strlen(filePath)) {
+        pathLen = strlen(filePath) * 2;
+        fullpath = (char *)realloc(fullpath, pathLen);
+        STATIC_MALLOC(fullpath == NULL,"realloc error");
+        
+    }
+    strcpy(fullpath, filePath);
+    return (doPath(func));
+};
+
+static int func(const char *filePath, const struct stat *statBuffer, int mode) {
+    
+    return 0;
+}
+
+void read_file() {
+    char *path = "";
+    int status = myftw(path, (MyFunc)func);
+    if (status < 0) {
+        
+    }
 }
 
 int main() {

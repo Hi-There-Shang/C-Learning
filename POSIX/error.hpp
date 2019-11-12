@@ -9,6 +9,11 @@
 #ifndef error_hpp
 #define error_hpp
 
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <dirent.h>
+#include <memory>
 #include <stdio.h>
 #include <errno.h>
 #include <unistd.h>
@@ -51,6 +56,9 @@
                                     abort(0);                                         \
 }while(0)
 
+#define STATIC_MALLOC(x, code)    if (x == 0) {\
+                               err_abort(1, code);\
+                            }
 
 namespace _Log_ {
     template <class T>
