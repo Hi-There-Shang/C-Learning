@@ -13,6 +13,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <dirent.h>
 
 void testUnix() {
     const char *fileName = "/Users/shangchengcheng/Desktop/123.txt";
@@ -34,15 +35,28 @@ void testUnix() {
 //    int creatFd = creat(fileName, 0x0000|0x0001|0x0002);
     
     struct stat st;
+    /// 获取文件属性
     int status = stat(fileName, &st);
     if (status == 0) {
         printf("%d \n", st.st_mode);
     }
     
+    /// 时间
+    ///
+    /*
+     __darwin_time_t tv_sec;   秒
+     long            tv_nsec;  纳秒
+    */
+//    struct timespec time;
+    /// 修改文件的修改时间
+//    futimens(<#int __fd#>, <#const struct timespec *__times#>)
+    
+    printf("%ld -- %ld \n", st.st_ctimespec.tv_nsec, st.st_ctimespec.tv_sec);
     /// 刷新缓冲区
 //    sync()
 //    fsync(<#int#>)
     
+    /// 改变文件属性
 //    fcntl(<#int#>, <#int, ...#>)
     
     /// 访问权限
@@ -54,6 +68,15 @@ void testUnix() {
 //    linkat(<#int#>, <#const char *#>, <#int#>, <#const char *#>, <#int#>)
     /// 重命名
 //    rename(<#const char *__old#>, <#const char *__new#>)
+    
+    /// 创建目录
+//    mkdir(<#const char *#>, <#mode_t#>)
+    
+    /// 打开文件
+    DIR *dir = opendir(fileName);
+    
+//    fdopendir(<#int#>)
+    struct dirent *ent = readdir(dir);
 }
 
 int main() {
