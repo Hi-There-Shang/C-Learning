@@ -36,6 +36,7 @@
 		6C1B05BE2377E14F000B9765 /* Global.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05BC2377E14F000B9765 /* Global.cpp */; };
 		6C1B05C1237991E3000B9765 /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05BF237991E3000B9765 /* List.cpp */; };
 		6C1B05C5237AC780000B9765 /* file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05C3237AC780000B9765 /* file.cpp */; };
+		6C1B05C8237C38D1000B9765 /* TypeTraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05C6237C38D1000B9765 /* TypeTraits.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -108,6 +109,8 @@
 		6C1B05C0237991E3000B9765 /* List.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = List.hpp; sourceTree = "<group>"; };
 		6C1B05C3237AC780000B9765 /* file.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file.cpp; sourceTree = "<group>"; };
 		6C1B05C4237AC780000B9765 /* file.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = file.hpp; sourceTree = "<group>"; };
+		6C1B05C6237C38D1000B9765 /* TypeTraits.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TypeTraits.cpp; sourceTree = "<group>"; };
+		6C1B05C7237C38D1000B9765 /* TypeTraits.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeTraits.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +269,8 @@
 				6C1B052E2375B9CE000B9765 /* Policies.hpp */,
 				6C1B05BC2377E14F000B9765 /* Global.cpp */,
 				6C1B05BD2377E14F000B9765 /* Global.hpp */,
+				6C1B05C6237C38D1000B9765 /* TypeTraits.cpp */,
+				6C1B05C7237C38D1000B9765 /* TypeTraits.hpp */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 				6C1B050823706720000B9765 /* Mutex.cpp in Sources */,
 				6C1B052B237456FD000B9765 /* Tmp.cpp in Sources */,
 				6C1B04EB236E7F3C000B9765 /* Observable.cpp in Sources */,
+				6C1B05C8237C38D1000B9765 /* TypeTraits.cpp in Sources */,
 				6C1B04F1236E97E4000B9765 /* Counter.cpp in Sources */,
 				6C1B051F2371B948000B9765 /* alarm_data.cpp in Sources */,
 				6C1B0527237307BB000B9765 /* Counter.cpp in Sources */,
