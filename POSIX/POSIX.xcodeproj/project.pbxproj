@@ -37,6 +37,8 @@
 		6C1B05C1237991E3000B9765 /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05BF237991E3000B9765 /* List.cpp */; };
 		6C1B05C5237AC780000B9765 /* file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05C3237AC780000B9765 /* file.cpp */; };
 		6C1B05C8237C38D1000B9765 /* TypeTraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05C6237C38D1000B9765 /* TypeTraits.cpp */; };
+		6C1B05CB237D7A86000B9765 /* Functor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05C9237D7A86000B9765 /* Functor.cpp */; };
+		6C1B05CE237D7A98000B9765 /* FunctorImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05CC237D7A98000B9765 /* FunctorImpl.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +113,10 @@
 		6C1B05C4237AC780000B9765 /* file.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = file.hpp; sourceTree = "<group>"; };
 		6C1B05C6237C38D1000B9765 /* TypeTraits.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TypeTraits.cpp; sourceTree = "<group>"; };
 		6C1B05C7237C38D1000B9765 /* TypeTraits.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeTraits.hpp; sourceTree = "<group>"; };
+		6C1B05C9237D7A86000B9765 /* Functor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Functor.cpp; sourceTree = "<group>"; };
+		6C1B05CA237D7A86000B9765 /* Functor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Functor.hpp; sourceTree = "<group>"; };
+		6C1B05CC237D7A98000B9765 /* FunctorImpl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FunctorImpl.cpp; sourceTree = "<group>"; };
+		6C1B05CD237D7A98000B9765 /* FunctorImpl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FunctorImpl.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +277,10 @@
 				6C1B05BD2377E14F000B9765 /* Global.hpp */,
 				6C1B05C6237C38D1000B9765 /* TypeTraits.cpp */,
 				6C1B05C7237C38D1000B9765 /* TypeTraits.hpp */,
+				6C1B05C9237D7A86000B9765 /* Functor.cpp */,
+				6C1B05CA237D7A86000B9765 /* Functor.hpp */,
+				6C1B05CC237D7A98000B9765 /* FunctorImpl.cpp */,
+				6C1B05CD237D7A98000B9765 /* FunctorImpl.hpp */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -357,6 +367,7 @@
 				6C1B051223718FE9000B9765 /* scope_ptr.cpp in Sources */,
 				6C1B053523767A94000B9765 /* person.c in Sources */,
 				6C1B04DC236E5CFF000B9765 /* main.cpp in Sources */,
+				6C1B05CB237D7A86000B9765 /* Functor.cpp in Sources */,
 				6C1B051923719B31000B9765 /* test_share_ptr.cpp in Sources */,
 				6C1B04FD236EDF81000B9765 /* Tree_Sort.cpp in Sources */,
 				6C1B04FA236ED20C000B9765 /* Traits.cpp in Sources */,
@@ -368,6 +379,7 @@
 				6C1B053223767A83000B9765 /* hello.c in Sources */,
 				6C1B050C23706927000B9765 /* Base.cpp in Sources */,
 				6C1B053823769F10000B9765 /* Queue.cpp in Sources */,
+				6C1B05CE237D7A98000B9765 /* FunctorImpl.cpp in Sources */,
 				6C1B04F4236ED1C1000B9765 /* StockFactory.cpp in Sources */,
 				6C1B052F2375B9CE000B9765 /* Policies.cpp in Sources */,
 				6C1B05242372D66C000B9765 /* Boost_String.cpp in Sources */,

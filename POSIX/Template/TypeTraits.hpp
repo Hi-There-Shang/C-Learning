@@ -10,6 +10,8 @@
 #define TypeTraits_hpp
 
 #include <stdio.h>
+#include <vector>
+#include <iostream>
 
 struct NullType;
 struct EmptyType {};
@@ -90,17 +92,72 @@ public:
     enum {value = temp == -1 ? -1 : temp + 1};
 };
 
+template <bool> struct ComplieTimeChecker;
 
-#include <vector>
+#define STATIC_CHECK(x)  {char unnamed[(x) ? 1 : -1];}
+#define STATIC_COMPLIE(expr) (ComplieTimeError<(expr) != 0>())
+#define DESTON "Cl"
+#define Log sizeof(int);
 
-void test_vector() {
-    bool reuslt = TypeTraits<std::vector<int>::iterator>::isPointer;
-    printf("%d --- %s \n", reuslt ,reuslt ? "fast" : "smart");
+#define STATIC_CHECKER(expr, msg)  \
+{\
+class ERROR_##msg {}; \
+auto value = ComplieTimeChecker<(expr)>(ERROR_##msg());\
+(void)sizeof(value);  \
 }
 
-int main() {
-    test_vector();
-    return 0;
+#define CLASS(name)  \
+class A_##name {};
+
+
+template <int v>
+struct Int2Type {
+    enum {value = v};
+};
+
+template <bool flag, class T, class U>
+struct Select {
+    typedef T Result;
+};
+
+template <class T, class U>
+struct Select<false, T, U>  {
+    typedef U Result;
+};
+
+template <class To, class From>
+To safe_reinterpret_Cast(From from) {
+    //    assert(sizeof(From) <= sizeof(To));
+    STATIC_CHECKER((sizeof(From) <= sizeof(To)), 3);
+    return reinterpret_cast<To>(from);
 }
+
+template <bool> struct ComplieTimeError;
+
+template <>
+struct ComplieTimeError<true> { };
+
+template <bool>
+struct ComplieTimeChecker {
+    ComplieTimeChecker(...) {}
+};
+
+template <>
+struct ComplieTimeChecker<false> { };
+
+
+//void test_vector() {
+//    bool reuslt = TypeTraits<std::vector<int>::iterator>::isPointer;
+//    printf("%d --- %s \n", reuslt ,reuslt ? "fast" : "smart");
+////    typedef TypeAt<TypeList<int, TYPELIST_2(float, double)>, 1>::Result Result1;
+////    typedef TypeAt<TypeList<int, double>, >::Result Result2;
+////    std::cout << typeid(Result1).name() << std::endl;
+////    std::cout << typeid(Result2).name() << std::endl;
+//}
+
+//int main____() {
+//    test_vector();
+//    return 0;
+//}
 
 #endif /* TypeTraits_hpp */
