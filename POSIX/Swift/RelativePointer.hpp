@@ -38,4 +38,107 @@ static inline Offset measureRelativeOffset(A *referent, B *base) {
     return truncatedDistance;
 }
 
+template <typename Offset>
+void static_check(const Offset &offset) {
+    static_assert(boost::is_integral<Offset>::value && boost::is_signed<Offset>::value, "offset type should be signed integer");
+}
+
+template <typename ValueTy, bool Nullable = false, typename Offset = int32_t>
+class RelativeIndirectPointer {
+private:
+    static_assert(boost::is_integral<Offset>::value && boost::is_signed<Offset>::value, "offset type should be signed integer");
+    
+    Offset RelativeOffset;
+    RelativeIndirectPointer() = delete;
+    RelativeIndirectPointer(RelativeIndirectPointer &&) = delete;
+    RelativeIndirectPointer(const RelativeIndirectPointer &) = delete;
+    RelativeIndirectPointer &operator=(RelativeIndirectPointer &&)
+    = delete;
+    RelativeIndirectPointer &operator=(const RelativeIndirectPointer &)
+    = delete;
+    
+public:
+    const ValueTy* get() const {
+        if (Nullable && RelativeOffset == 0) {
+            return nullptr;
+        }
+        uintptr_t address = applyRelativeOffset(this, RelativeOffset);
+        return *reinterpret_cast<const ValueTy * const *>(address);
+    }
+    
+    bool isNull() const {
+        return RelativeOffset == 0;
+    }
+    
+    operator const ValueTy* () const& {
+        return get();
+    }
+    
+    const ValueTy *operator ->() const& {
+        return get();
+    }
+};
+
+template <typename ValueTy, bool Nullable = false, typename Offset = int32_t>
+class RelativeIndirectablePointer {
+private:
+    static_assert(boost::is_integral<Offset>::value && boost::is_signed<Offset>::value, "offset type should be signed integer");
+    
+    Offset RelativeOffsetPlusIndirect;
+    RelativeIndirectablePointer() = delete;
+    RelativeIndirectablePointer(RelativeIndirectablePointer &&) = delete;
+    RelativeIndirectablePointer(const RelativeIndirectablePointer &) = delete;
+    RelativeIndirectablePointer &operator=(RelativeIndirectablePointer &&)
+    = delete;
+    RelativeIndirectablePointer &operator=(const RelativeIndirectablePointer &)
+    = delete;
+public:
+    RelativeIndirectablePointer(ValueTy *absolute)
+     :RelativeOffsetPlusIndirect(
+      (Nullable && absolute == nullptr) ? 0 : measureRelativeOffset<Offset>(absolute, this)
+                                 ) {
+         if (!Nullable) {
+             assert(absolute != nullptr &&
+                    "constructing non-nullable relative pointer from null");
+         }
+     }
+    
+    RelativeIndirectablePointer& operator =(ValueTy *absolute) {
+        if (!Nullable) {
+            assert(absolute != nullptr &&
+                   "constructing non-nullable relative pointer from null");
+        }
+        RelativeOffsetPlusIndirect = Nullable && absolute == nullptr ? 0 : measureRelativeOffset<Offset>(absolute, this);
+        return *this;
+    }
+    
+    const ValueTy* get() const {
+        static_assert(alignof(ValueTy) >=2 && alignof(Offset) >= 2, "alignment of value and offset must be at least 2 to make room for indirectable flag");
+        if (Nullable && RelativeOffsetPlusIndirect == 0) {
+            return nullptr;
+        }
+        
+        Offset plusIndirectOffset = RelativeOffsetPlusIndirect;
+        uintptr_t address = applyRelativeOffset(this, plusIndirectOffset & ~1);
+        if (plusIndirectOffset & 1) {
+            return *reinterpret_cast<const ValueTy * const *>(address);
+        } else {
+            return reinterpret_cast<const ValueTy *>(address);
+        }
+    }
+    
+    /// A zero relative offset encodes a null reference.
+    bool isNull() const & {
+        return RelativeOffsetPlusIndirect == 0;
+    }
+    
+    operator const ValueTy* () const & {
+        return get();
+    }
+    
+    const ValueTy *operator->() const & {
+        return get();
+    }
+};
+
 #endif /* RelativePointer_hpp */
