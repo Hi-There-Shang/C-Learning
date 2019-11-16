@@ -141,4 +141,52 @@ public:
     }
 };
 
+template <typename ValueTy, typename IntTy, bool Nullable = false, typename Offset = int32_t>
+class RelativeIndirectablePointerIntPair {
+private:
+    static_assert(boost::is_integral<Offset>::value && boost::is_signed<Offset>::value, "offset type should be signed integer");
+    Offset RelativeOffsetPlusIndirectAndInt;
+    
+    RelativeIndirectablePointerIntPair() = delete;
+    RelativeIndirectablePointerIntPair(
+                                       RelativeIndirectablePointerIntPair &&) = delete;
+    RelativeIndirectablePointerIntPair(
+                                       const RelativeIndirectablePointerIntPair &) = delete;
+    RelativeIndirectablePointerIntPair& operator=(
+                                                  RelativeIndirectablePointerIntPair &&) = delete;
+    RelativeIndirectablePointerIntPair &operator=(
+                                                  const RelativeIndirectablePointerIntPair &) = delete;
+    
+    static Offset getIntMask() {
+        return (alignof(Offset) - 1) & ~((Offset)0x01);
+    }
+public:
+    
+    const ValueTy* getPointer() const & {
+        static_assert(alignof(ValueTy) >= 2 && alignof(Offset) >= 2,
+                      "alignment of value and offset must be at least 2 to "
+                      "make room for indirectable flag");
+        Offset offset = RelativeOffsetPlusIndirectAndInt & ~getIntMask();
+        if (Nullable && offset == 0) return nullptr;
+        
+        Offset plusIndirectAndIntOffset = offset;
+        uintptr_t address = applyRelativeOffset(this, plusIndirectAndIntOffset & ~1);
+        if (plusIndirectAndIntOffset & 1) {
+            return *reinterpret_cast<const ValueTy * const *>(address);
+        } else {
+            return reinterpret_cast<const ValueTy *>(address);
+        }
+    }
+    
+    bool isNull() const & {
+        Offset offset = (RelativeOffsetPlusIndirectAndInt & ~getIntMask());
+        return offset == 0;
+    }
+    
+    IntTy getInt() const & {
+        return IntTy((RelativeOffsetPlusIndirectAndInt & getIntMask()) >> 1);
+    }
+    
+};
+
 #endif /* RelativePointer_hpp */

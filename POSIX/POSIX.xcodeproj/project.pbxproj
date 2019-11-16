@@ -41,6 +41,7 @@
 		6C1B05CE237D7A98000B9765 /* FunctorImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05CC237D7A98000B9765 /* FunctorImpl.cpp */; };
 		6C1B05D1237D919C000B9765 /* string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05CF237D919C000B9765 /* string.cpp */; };
 		6C1B05D523800E96000B9765 /* RelativePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D323800E96000B9765 /* RelativePointer.cpp */; };
+		6C1B05D823803FEA000B9765 /* JsonTraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D623803FEA000B9765 /* JsonTraits.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -123,6 +124,8 @@
 		6C1B05D0237D919C000B9765 /* string.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = string.hpp; sourceTree = "<group>"; };
 		6C1B05D323800E96000B9765 /* RelativePointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RelativePointer.cpp; sourceTree = "<group>"; };
 		6C1B05D423800E96000B9765 /* RelativePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RelativePointer.hpp; sourceTree = "<group>"; };
+		6C1B05D623803FEA000B9765 /* JsonTraits.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JsonTraits.cpp; sourceTree = "<group>"; };
+		6C1B05D723803FEA000B9765 /* JsonTraits.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JsonTraits.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +320,8 @@
 			children = (
 				6C1B05D323800E96000B9765 /* RelativePointer.cpp */,
 				6C1B05D423800E96000B9765 /* RelativePointer.hpp */,
+				6C1B05D623803FEA000B9765 /* JsonTraits.cpp */,
+				6C1B05D723803FEA000B9765 /* JsonTraits.hpp */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				6C1B051223718FE9000B9765 /* scope_ptr.cpp in Sources */,
 				6C1B053523767A94000B9765 /* person.c in Sources */,
 				6C1B04DC236E5CFF000B9765 /* main.cpp in Sources */,
+				6C1B05D823803FEA000B9765 /* JsonTraits.cpp in Sources */,
 				6C1B05CB237D7A86000B9765 /* Functor.cpp in Sources */,
 				6C1B051923719B31000B9765 /* test_share_ptr.cpp in Sources */,
 				6C1B04FD236EDF81000B9765 /* Tree_Sort.cpp in Sources */,
