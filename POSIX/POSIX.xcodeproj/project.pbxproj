@@ -39,6 +39,8 @@
 		6C1B05C8237C38D1000B9765 /* TypeTraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05C6237C38D1000B9765 /* TypeTraits.cpp */; };
 		6C1B05CB237D7A86000B9765 /* Functor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05C9237D7A86000B9765 /* Functor.cpp */; };
 		6C1B05CE237D7A98000B9765 /* FunctorImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05CC237D7A98000B9765 /* FunctorImpl.cpp */; };
+		6C1B05D1237D919C000B9765 /* string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05CF237D919C000B9765 /* string.cpp */; };
+		6C1B05D523800E96000B9765 /* RelativePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D323800E96000B9765 /* RelativePointer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -117,6 +119,10 @@
 		6C1B05CA237D7A86000B9765 /* Functor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Functor.hpp; sourceTree = "<group>"; };
 		6C1B05CC237D7A98000B9765 /* FunctorImpl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FunctorImpl.cpp; sourceTree = "<group>"; };
 		6C1B05CD237D7A98000B9765 /* FunctorImpl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FunctorImpl.hpp; sourceTree = "<group>"; };
+		6C1B05CF237D919C000B9765 /* string.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = string.cpp; sourceTree = "<group>"; };
+		6C1B05D0237D919C000B9765 /* string.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = string.hpp; sourceTree = "<group>"; };
+		6C1B05D323800E96000B9765 /* RelativePointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RelativePointer.cpp; sourceTree = "<group>"; };
+		6C1B05D423800E96000B9765 /* RelativePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RelativePointer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				6C1B04E3236E5D0E000B9765 /* error.hpp */,
+				6C1B05D223800E7C000B9765 /* Swift */,
 				6C1B05C2237AC768000B9765 /* IO */,
 				6C1B053023767A83000B9765 /* GCC */,
 				6C1B052C2375B9B2000B9765 /* Template */,
@@ -299,8 +306,19 @@
 			children = (
 				6C1B05C3237AC780000B9765 /* file.cpp */,
 				6C1B05C4237AC780000B9765 /* file.hpp */,
+				6C1B05CF237D919C000B9765 /* string.cpp */,
+				6C1B05D0237D919C000B9765 /* string.hpp */,
 			);
 			path = IO;
+			sourceTree = "<group>";
+		};
+		6C1B05D223800E7C000B9765 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				6C1B05D323800E96000B9765 /* RelativePointer.cpp */,
+				6C1B05D423800E96000B9765 /* RelativePointer.hpp */,
+			);
+			path = Swift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +381,7 @@
 				6C1B0501236EF87A000B9765 /* Share_ptr.cpp in Sources */,
 				6C1B050F23718FAB000B9765 /* auto_ptr.cpp in Sources */,
 				6C1B04EE236E95C5000B9765 /* Foo.cpp in Sources */,
+				6C1B05D1237D919C000B9765 /* string.cpp in Sources */,
 				6C1B05BE2377E14F000B9765 /* Global.cpp in Sources */,
 				6C1B051223718FE9000B9765 /* scope_ptr.cpp in Sources */,
 				6C1B053523767A94000B9765 /* person.c in Sources */,
@@ -382,6 +401,7 @@
 				6C1B05CE237D7A98000B9765 /* FunctorImpl.cpp in Sources */,
 				6C1B04F4236ED1C1000B9765 /* StockFactory.cpp in Sources */,
 				6C1B052F2375B9CE000B9765 /* Policies.cpp in Sources */,
+				6C1B05D523800E96000B9765 /* RelativePointer.cpp in Sources */,
 				6C1B05242372D66C000B9765 /* Boost_String.cpp in Sources */,
 				6C1B04F7236ED1CB000B9765 /* Stock.cpp in Sources */,
 				6C1B05C1237991E3000B9765 /* List.cpp in Sources */,

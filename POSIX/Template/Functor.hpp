@@ -56,9 +56,10 @@ private:
     
 };
 
-int main() {
-    Functor<double, TYPELIST_3(int, double, float)> functor;
+int main1232222() {
+//    Functor<double, TYPELIST_2(int, double)> functor;
 //    functor(1,2);
+//    Functor<int, TypeList<int, NullType>> func;
     return 0;
 }
 #endif /* Functor_hpp */
