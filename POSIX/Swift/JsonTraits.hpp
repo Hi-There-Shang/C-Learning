@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <boost/regex.hpp>
 #include <boost/xpressive/basic_regex.hpp>
 #include <boost/container/string.hpp>
 
@@ -146,18 +145,23 @@ public:
 };
 
 inline bool isNumber(StringRef S) {
-    /static const char DecChars[] = "0123456789";
+    static const char DecChars[] = "0123456789";
     
-    if (S.find_first_not_of(DecChars) == StringRef::npos)
+    if (S.find_first_not_of(DecChars) == std::string::npos)
         return true;
     using Regex = boost::xpressive::sregex;
-    Regex reg = Regex::compile("^(\\.[0-9]+|[0-9]+(\\.[0-9]*)?)([eE][-+]?[0-9]+)?$");
+    std::string patterns = "^(\\.[0-9]+|[0-9]+(\\.[0-9]*)?)([eE][-+]?[0-9]+)?$";
+//    auto reg = boost::xpressive::sregex::compile(patterns.begin(), patterns.end());
 //    boost::regex_match(<#const std::basic_string<charT, ST, SA> &s#>, <#const basic_regex<charT, traits> &e#>)
 //    boost::regex_match(S, reg);
 //    if (boost::regex_match(S, reg)) {
 //        return true;
 //    }
     return false;
+}
+
+int main111111112345() {
+    return 0;
 }
 
 #endif /* JsonTraits_hpp */
