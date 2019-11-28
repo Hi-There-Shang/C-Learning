@@ -146,12 +146,12 @@ public:
 };
 
 inline bool isNumber(StringRef S) {
-    /static const char DecChars[] = "0123456789";
+    static const char DecChars[] = "0123456789";
     
     if (S.find_first_not_of(DecChars) == StringRef::npos)
         return true;
     using Regex = boost::xpressive::sregex;
-    Regex reg = Regex::compile("^(\\.[0-9]+|[0-9]+(\\.[0-9]*)?)([eE][-+]?[0-9]+)?$");
+//    Regex reg = Regex::compile("^(\\.[0-9]+|[0-9]+(\\.[0-9]*)?)([eE][-+]?[0-9]+)?$");
 //    boost::regex_match(<#const std::basic_string<charT, ST, SA> &s#>, <#const basic_regex<charT, traits> &e#>)
 //    boost::regex_match(S, reg);
 //    if (boost::regex_match(S, reg)) {
