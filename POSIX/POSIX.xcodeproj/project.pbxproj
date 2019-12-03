@@ -42,6 +42,7 @@
 		6C1B05D1237D919C000B9765 /* string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05CF237D919C000B9765 /* string.cpp */; };
 		6C1B05D523800E96000B9765 /* RelativePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D323800E96000B9765 /* RelativePointer.cpp */; };
 		6C1B05D823803FEA000B9765 /* JsonTraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D623803FEA000B9765 /* JsonTraits.cpp */; };
+		6CDBBB962396914E002D7FEA /* assemblyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB942396914E002D7FEA /* assemblyline.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -126,6 +127,8 @@
 		6C1B05D423800E96000B9765 /* RelativePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RelativePointer.hpp; sourceTree = "<group>"; };
 		6C1B05D623803FEA000B9765 /* JsonTraits.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JsonTraits.cpp; sourceTree = "<group>"; };
 		6C1B05D723803FEA000B9765 /* JsonTraits.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JsonTraits.hpp; sourceTree = "<group>"; };
+		6CDBBB942396914E002D7FEA /* assemblyline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = assemblyline.cpp; sourceTree = "<group>"; };
+		6CDBBB952396914E002D7FEA /* assemblyline.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = assemblyline.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 				6C1B051E2371B948000B9765 /* alarm_data.hpp */,
 				6C1B0525237307BB000B9765 /* Counter.cpp */,
 				6C1B0526237307BB000B9765 /* Counter.hpp */,
+				6CDBBB942396914E002D7FEA /* assemblyline.cpp */,
+				6CDBBB952396914E002D7FEA /* assemblyline.hpp */,
 			);
 			path = POSIX;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				6C1B05162371933D000B9765 /* user.cpp in Sources */,
 				6C1B05C5237AC780000B9765 /* file.cpp in Sources */,
 				6C1B0504236F03CE000B9765 /* Boost_array.cpp in Sources */,
+				6CDBBB962396914E002D7FEA /* assemblyline.cpp in Sources */,
 				6C1B051C2371B940000B9765 /* alarm.cpp in Sources */,
 				6C1B053223767A83000B9765 /* hello.c in Sources */,
 				6C1B050C23706927000B9765 /* Base.cpp in Sources */,

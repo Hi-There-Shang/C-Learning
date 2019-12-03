@@ -46,7 +46,7 @@ char * longestPalindrome(char * s){
     return max;
 }
 
-int main() {
+int main10101010101010() {
 //    std::enable_if<<#bool#>>
     test_string();
     
