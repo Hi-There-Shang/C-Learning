@@ -36,10 +36,42 @@ typedef struct pipe_tag {
 
 int pipe_send(stage_t *stage, long data) {
     
+    int status;
+    pthread_mutex_lock(&stage->mutex);
+    
+    while (stage->data_ready) {
+        status = pthread_cond_wait(&stage->ready, &stage->mutex);
+        if (status != 0) {
+            pthread_mutex_unlock(&stage->mutex);
+            return status;
+        }
+    }
+    stage->data = data;
+    stage->data_ready = 1;
+    status = pthread_cond_signal(&stage->avail);
+    if (status != 0) {
+        pthread_mutex_unlock(&stage->mutex);
+        return status;
+    }
+    pthread_mutex_unlock(&stage->mutex);
     return 0;
 }
 
 void *pipe_stage(void *arg) {
+    
+    stage_t *stage = (stage_t *)arg;
+    stage_t *next_stage = stage->next;
+    pthread_mutex_lock(&stage->mutex);
+    
+    while (1) {
+        while (stage->data_ready != 1) {
+            pthread_cond_wait(&stage->avail, &stage->mutex);
+        }
+        
+        pipe_send(next_stage, stage->data + 1);
+        stage->data_ready = 0;
+        pthread_cond_signal(&stage->ready);
+    }
     
     return nullptr;
 }
@@ -74,6 +106,10 @@ int pipe_create(pipe_t *pipe, int stages) {
 }
 
 int pipe_start(pipe_t *pipe, long value) {
+    pthread_mutex_lock(&pipe->mutex);
+    pipe->active++;
+    pthread_mutex_unlock(&pipe->mutex);
+    pipe_send(pipe->head, value);
     return 0;
 }
 
