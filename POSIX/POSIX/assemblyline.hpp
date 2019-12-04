@@ -142,7 +142,7 @@ int pipe_result(pipe_t *pipe, long *result) {
     return 1;
 }
 
-int main() {
+int main123454321() {
     
     pipe_t pipe;
 //    int status;

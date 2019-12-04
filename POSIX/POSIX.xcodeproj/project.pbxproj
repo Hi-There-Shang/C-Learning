@@ -43,6 +43,7 @@
 		6C1B05D523800E96000B9765 /* RelativePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D323800E96000B9765 /* RelativePointer.cpp */; };
 		6C1B05D823803FEA000B9765 /* JsonTraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D623803FEA000B9765 /* JsonTraits.cpp */; };
 		6CDBBB962396914E002D7FEA /* assemblyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB942396914E002D7FEA /* assemblyline.cpp */; };
+		6CDBBB992397E38D002D7FEA /* group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB972397E38D002D7FEA /* group.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -129,6 +130,8 @@
 		6C1B05D723803FEA000B9765 /* JsonTraits.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JsonTraits.hpp; sourceTree = "<group>"; };
 		6CDBBB942396914E002D7FEA /* assemblyline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = assemblyline.cpp; sourceTree = "<group>"; };
 		6CDBBB952396914E002D7FEA /* assemblyline.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = assemblyline.hpp; sourceTree = "<group>"; };
+		6CDBBB972397E38D002D7FEA /* group.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = group.cpp; sourceTree = "<group>"; };
+		6CDBBB982397E38D002D7FEA /* group.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = group.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 				6C1B0526237307BB000B9765 /* Counter.hpp */,
 				6CDBBB942396914E002D7FEA /* assemblyline.cpp */,
 				6CDBBB952396914E002D7FEA /* assemblyline.hpp */,
+				6CDBBB972397E38D002D7FEA /* group.cpp */,
+				6CDBBB982397E38D002D7FEA /* group.hpp */,
 			);
 			path = POSIX;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				6C1B05C8237C38D1000B9765 /* TypeTraits.cpp in Sources */,
 				6C1B04F1236E97E4000B9765 /* Counter.cpp in Sources */,
 				6C1B051F2371B948000B9765 /* alarm_data.cpp in Sources */,
+				6CDBBB992397E38D002D7FEA /* group.cpp in Sources */,
 				6C1B0527237307BB000B9765 /* Counter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
