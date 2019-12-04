@@ -14,6 +14,7 @@
 #include <pthread.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <errno.h>
 #include <string.h>
 #include <dirent.h>
 
@@ -153,6 +154,23 @@ void *worker_routine(void *arg) {
         } else if (S_ISREG(filestat.st_mode)) {
             FILE *search;
             char buffer[512];
+            char *bufptr;
+            char *searchptr;
+            search = fopen(work->path, "r");
+            
+            while (1) {
+                bufptr = fgets(buffer, sizeof(buffer), search);
+                if (bufptr == NULL) {
+                    if (feof(search)) {
+                        break;
+                    }
+                    if (ferror(search)) {
+                        fprintf(stderr, "%s", strerror(errno));
+                        break;
+                    }
+                }
+                searchptr = strstr(bufptr, work->string);
+            }
         }
     }
     
