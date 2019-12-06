@@ -14,6 +14,7 @@
 #include <pthread.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <unistd.h>
 #include <errno.h>
 #include <string.h>
 #include <dirent.h>
@@ -175,6 +176,89 @@ void *worker_routine(void *arg) {
     }
     
     return nullptr;
+}
+
+int crew_create(crew_t *crew, int crew_size) {
+    
+    int crew_index;
+    if (crew_size > Size) {
+        return 0;
+    }
+    
+    crew->crew_size = crew_size;
+    crew->work_count = 0;
+    crew->first = NULL;
+    crew->last = NULL;
+    
+    pthread_cond_init(&crew->done, NULL);
+    pthread_cond_init(&crew->go, NULL);
+    pthread_mutex_init(&crew->mutex, NULL);
+    
+    for (crew_index = 0; crew_index < crew_size; crew_index++) {
+        pthread_create(&crew[crew_index].thread, NULL, worker_routine, (void *)&crew->crew[crew_index]);
+    }
+    return 0;
+}
+
+int crew_start(crew_t *crew, char *filepath, char *search) {
+    
+    work_t *request;
+    
+    pthread_mutex_lock(&crew->mutex);
+    
+    while (crew->work_count > 0) {
+        pthread_cond_wait(&crew->done, &crew->mutex);
+    }
+    
+    errno = 0;
+    path_max = pathconf(filepath, _PC_PATH_MAX);
+    
+    if (path_max == -1) {
+        if (errno == 0) {
+            path_max = 1024;
+        } else {
+            exit(0);
+        }
+    }
+    
+    name_max = pathconf(search, _PC_NAME_MAX);
+    
+    if (path_max == -1) {
+        if (errno == 0) {
+            path_max = 256;
+        } else {
+            exit(0);
+        }
+    }
+    
+    fprintf(stdout, "filepath %s, Path_max %ld, name_max %ld \n", filepath, path_max, name_max);
+    path_max++;
+    name_max++;
+    
+    request = (work_t *)malloc(sizeof(work_t));
+    fprintf(stdout, "filepath %s \n", filepath);
+    request->path = (char *)malloc(sizeof(path_max));
+    strcmp(request->path, filepath);
+    request->string = search;
+    request->next = NULL;
+    
+    if (crew->first == NULL) {
+        crew->first = request;
+        crew->last = request;
+    } else {
+        crew->last->next = request;
+        crew->last = request;
+    }
+    
+    crew->work_count++;
+    pthread_cond_signal(&crew->go);
+    
+    while (crew->work_count > 0) {
+        pthread_cond_wait(&crew->done, &crew->mutex);
+    }
+    
+    pthread_mutex_unlock(&crew->mutex);
+    return 0;
 }
 
 int main() {
