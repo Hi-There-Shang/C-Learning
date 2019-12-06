@@ -67,11 +67,11 @@ void *pipe_stage(void *arg) {
         while (stage->data_ready != 1) {
             pthread_cond_wait(&stage->avail, &stage->mutex);
         }
+        pipe_send(next_stage, stage->data + 1);
+        stage->data_ready = 0;
+        pthread_cond_signal(&stage->ready);
     }
-    pipe_send(next_stage, stage->data + 1);
-    stage->data_ready = 0;
-    pthread_cond_signal(&stage->ready);
-    
+   
     return nullptr;
 }
 
