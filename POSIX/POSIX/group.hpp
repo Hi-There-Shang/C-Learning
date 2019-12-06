@@ -178,24 +178,25 @@ void *worker_routine(void *arg) {
     return nullptr;
 }
 
-int crew_create(crew_t *crew, int crew_size) {
+int crew_create(crew_t **crew, int crew_size) {
     
     int crew_index;
     if (crew_size > Size) {
         return 0;
     }
     
-    crew->crew_size = crew_size;
-    crew->work_count = 0;
-    crew->first = NULL;
-    crew->last = NULL;
+    *crew = (crew_t *)malloc(sizeof(crew_t));
+    (*crew)->crew_size = crew_size;
+    (*crew)->work_count = 0;
+    (*crew)->first = NULL;
+    (*crew)->last = NULL;
     
-    pthread_cond_init(&crew->done, NULL);
-    pthread_cond_init(&crew->go, NULL);
-    pthread_mutex_init(&crew->mutex, NULL);
+    pthread_cond_init(&(*crew)->done, NULL);
+    pthread_cond_init(&(*crew)->go, NULL);
+    pthread_mutex_init(&(*crew)->mutex, NULL);
     
     for (crew_index = 0; crew_index < crew_size; crew_index++) {
-        pthread_create(&crew[crew_index].thread, NULL, worker_routine, (void *)&crew->crew[crew_index]);
+        pthread_create(&(*crew)[crew_index].thread, NULL, worker_routine, (void *)&(*crew)->crew[crew_index]);
     }
     return 0;
 }
@@ -261,7 +262,25 @@ int crew_start(crew_t *crew, char *filepath, char *search) {
     return 0;
 }
 
-int main() {
+int main(int argc, char *arg[]) {
+    
+    crew_t *crew;
+    char line[256];
+    char *next;
+    int status;
+    
+//    if (argc < 3) {
+//        fprintf(stderr, "error input \n");
+//        exit(0);
+//    }
+    
+    
+    pthread_setconcurrency(Size);
+    
+    crew_create(&crew, Size);
+    
+    crew_start(crew, "/Users/shangchengcheng/Desktop/Hello", "cloud.yml");
+    
     return 0;
 }
 #endif /* group_hpp */
