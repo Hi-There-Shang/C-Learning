@@ -22,7 +22,7 @@ int recursive_num(int n, int nums[]) {
     return recursive_num(n - 1, nums);
 }
 
-int main() {
+int main1111111111111() {
     
     return 0;
 }
