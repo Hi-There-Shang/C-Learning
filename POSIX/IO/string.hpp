@@ -10,7 +10,7 @@
 #define string_hpp
 
 #include <stdio.h>
-#include "error.hpp"
+#include <string>
 
 using namespace std;
 void test_string() {
@@ -19,52 +19,40 @@ void test_string() {
     name.replace(1, 3, "qwert");
     
     printf("%s \n", name.c_str());
+    
+}
+char * longestPalindrome(char * s){
+    int length = strlen(s);
+    char *cur = (char *)malloc(sizeof(char) * length);
+    char *max = (char *)malloc(sizeof(char) * length);
+    int m = 0;
+    int n = 0;
+    for(int i = 0; i <= length; i++) {
+        int k = i;
+        int j = i;
+        while (k>=0 && j <= length && s[k] == s[j]) {
+            k--;
+            j++;
+            cur[m++] = s[k];
+            printf("%c \n", s[k]);
+        }
+        if (m > n) {
+            n = m;
+            m = 0;
+            max = cur;
+        }
+        
+    }
+    return max;
 }
 
-template <typename Tp, Tp f>
-struct is_pointer_ {
-    typedef is_pointer_ Pointer;
-    typedef Tp value_type;
-    static const Tp flags = f;
+int main10101010101010() {
+//    std::enable_if<<#bool#>>
+    test_string();
     
-     operator value_type() const {
-        return flags;
-    }
-    
-    value_type operator()() const {
-        return flags;
-    }
-};
-
-template <typename Tp, Tp _tp>
-const Tp is_pointer_<Tp, _tp>::flags;
-
-
-template <bool _tp>
-using bool_pointer = is_pointer_<bool, _tp>;
-
-typedef bool_pointer<true> True_type;
-typedef bool_pointer<false> False_type;
-
-//template <typename >
-
-template <typename T>
-void test_std(const T &v) {
-//    auto __v = std::enable_if<v>::type;
-//    _Log_::Log(__v);
-}
-
-int main() {
-    _Log_::Log(True_type());
-    _Log_::Log(True_type::flags);
-    _Log_::Log(False_type());
-    _Log_::Log(False_type::flags);
-//    int num = 1;
-//    test_std(num);
-//    bool result = false;
-//    auto v = std::enable_if<result>::value
-//    std::is_unsigned<<#class _Tp#>>
-//    test_string();
+    char *str = "abcqdewdcba";
+    char *sub = longestPalindrome(str);
+    printf("%s \n", sub);
     return 0;
 }
 
