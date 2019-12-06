@@ -10,6 +10,7 @@
 #define line_hpp
 
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <memory.h>
 #include <string.h>
@@ -37,6 +38,11 @@ typedef struct pipe_tag {
 
 int pipe_send_(stage_t *stage, long data) {
     
+    if (stage == NULL) {
+        printf("empty stage \n");
+        return 0;
+    }
+    
     pthread_mutex_lock(&stage->mutex);
     
     /*
@@ -46,9 +52,13 @@ int pipe_send_(stage_t *stage, long data) {
         pthread_cond_wait(&stage->ready, &stage->mutex);
     }
     
+    sleep(1);
+    printf("data = %ld, thread = %p \n", data, pthread_self());
+    
     stage->data = data;
     stage->data_ready = 1;
     pthread_cond_signal(&stage->avail);
+    pthread_mutex_unlock(&stage->mutex);
     
     return 0;
 }
@@ -58,6 +68,7 @@ int pipe_start_(pipe_t *pipe, long value) {
     pthread_mutex_lock(&pipe->mutex);
     pipe->active++;
     pthread_mutex_unlock(&pipe->mutex);
+    printf("- -   %p \n", pipe->head);
     pipe_send_(pipe->head, value);
     
     return 0;
@@ -65,7 +76,37 @@ int pipe_start_(pipe_t *pipe, long value) {
 
 int pipe_result_(pipe_t *pipe, long *result) {
    
-    return 0;
+    stage_t *tail = pipe->tail;
+    
+    pthread_mutex_lock(&pipe->mutex);
+    
+    bool empty = 0;
+    
+    if (pipe->active <= 0) {
+        empty = 1;
+    } else {
+        pipe->active--;
+    }
+    
+    pthread_mutex_unlock(&pipe->mutex);
+    
+    if (empty) {
+        return 0;
+    }
+    
+    pthread_mutex_lock(&tail->mutex);
+    
+    while (tail->data_ready != 1) {
+        pthread_cond_wait(&tail->avail, &tail->mutex);
+    }
+    
+    *result = tail->data;
+    tail->data_ready = 0;
+    pthread_cond_signal(&tail->ready);
+    
+    pthread_mutex_unlock(&tail->mutex);
+    
+    return 1;
 }
 
 void *pipe_stage_(void *arg) {
@@ -92,10 +133,10 @@ void *pipe_stage_(void *arg) {
     return NULL;
 }
 
-int pipe_create_(pipe_t *pipe, int stages) {
+int pipe_create_(pipe_t **pipe, int stages) {
     int stage_index = 0;
-    pipe = (pipe_t *)malloc(sizeof(pipe_t));
-    stage_t **link = &pipe->head;
+    *pipe = (pipe_t *)malloc(sizeof(pipe_t));
+    stage_t **link = &(*pipe)->head;
     stage_t *new_stage = nullptr;
     /*
      pthread_mutex_t     mutex;
@@ -104,9 +145,9 @@ int pipe_create_(pipe_t *pipe, int stages) {
      int                 stages;
      int                 active;
      */
-    pthread_mutex_init(&pipe->mutex, NULL);
-    pipe->stages = stages;
-    pipe->active = 0;
+    pthread_mutex_init(&(*pipe)->mutex, NULL);
+    (*pipe)->stages = stages;
+    (*pipe)->active = 0;
     
     for (stage_index = 0; stage_index < stages; stage_index++) {
         new_stage = (stage_t *)malloc(sizeof(stage_t));
@@ -118,30 +159,33 @@ int pipe_create_(pipe_t *pipe, int stages) {
         link = &new_stage->next;
     }
     
-    *link = NULL;
-    pipe->tail = new_stage;
+    printf(" --  %p \t", (*pipe)->head);
+    *link = (stage_t *)NULL;
+    (*pipe)->tail = new_stage;
     
-    for (stage_t *head = pipe->head; head != NULL; head = head->next) {
+    for (stage_t *head = (*pipe)->head; head != NULL; head = head->next) {
         pthread_create(&head->thread, NULL, pipe_stage_, (void *)head);
     }
     
     return 0;
 }
 
-int main() {
-    pipe_t pipe;
+int main12345677654321() {
+    pipe_t *pipe = nullptr;
     long result;
     long value;
     char line[128];
     
     pipe_create_(&pipe, 10);
     
+    printf(" 111  %p \n", pipe->head);
     printf("enter value or \"=\" for result \n");
     while (1) {
+        printf("data >: ");
         if (fgets(line, sizeof(line), stdin) == NULL)  exit(0);
         if (strlen(line) <= 1) continue;
         if (strlen(line) <= 2 && line[0] == '=') {
-            if (pipe_result_(&pipe, &result)) {
+            if (pipe_result_(pipe, &result)) {
                 printf("result = %ld \n", result);
             } else {
                 printf("pipe is empty \n");
@@ -150,7 +194,7 @@ int main() {
             if (sscanf(line, "%ld", &value) < 1) {
                 fprintf(stderr, "error input \n");
             } else {
-                pipe_start_(&pipe, value);
+                pipe_start_(pipe, value);
             }
         }
     }
