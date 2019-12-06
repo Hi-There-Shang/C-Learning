@@ -177,7 +177,7 @@ void *worker_routine(void *arg) {
     return nullptr;
 }
 
-int main1234444444() {
+int main() {
     return 0;
 }
 #endif /* group_hpp */
