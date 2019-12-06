@@ -42,8 +42,11 @@
 		6C1B05D1237D919C000B9765 /* string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05CF237D919C000B9765 /* string.cpp */; };
 		6C1B05D523800E96000B9765 /* RelativePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D323800E96000B9765 /* RelativePointer.cpp */; };
 		6C1B05D823803FEA000B9765 /* JsonTraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D623803FEA000B9765 /* JsonTraits.cpp */; };
+		6C899BF92399F4250044DFD4 /* recursive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C899BF72399F4250044DFD4 /* recursive.cpp */; };
+		6C899BFC2399F4FA0044DFD4 /* line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C899BFA2399F4FA0044DFD4 /* line.cpp */; };
 		6CDBBB962396914E002D7FEA /* assemblyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB942396914E002D7FEA /* assemblyline.cpp */; };
 		6CDBBB992397E38D002D7FEA /* group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB972397E38D002D7FEA /* group.cpp */; };
+		6CDBBB9C23993C2C002D7FEA /* Once.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB9B23993C2C002D7FEA /* Once.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -128,10 +131,16 @@
 		6C1B05D423800E96000B9765 /* RelativePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RelativePointer.hpp; sourceTree = "<group>"; };
 		6C1B05D623803FEA000B9765 /* JsonTraits.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JsonTraits.cpp; sourceTree = "<group>"; };
 		6C1B05D723803FEA000B9765 /* JsonTraits.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JsonTraits.hpp; sourceTree = "<group>"; };
+		6C899BF62399F2E70044DFD4 /* group.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = group.hpp; sourceTree = "<group>"; };
+		6C899BF72399F4250044DFD4 /* recursive.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = recursive.cpp; sourceTree = "<group>"; };
+		6C899BF82399F4250044DFD4 /* recursive.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = recursive.hpp; sourceTree = "<group>"; };
+		6C899BFA2399F4FA0044DFD4 /* line.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = line.cpp; sourceTree = "<group>"; };
+		6C899BFB2399F4FA0044DFD4 /* line.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = line.hpp; sourceTree = "<group>"; };
 		6CDBBB942396914E002D7FEA /* assemblyline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = assemblyline.cpp; sourceTree = "<group>"; };
 		6CDBBB952396914E002D7FEA /* assemblyline.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = assemblyline.hpp; sourceTree = "<group>"; };
 		6CDBBB972397E38D002D7FEA /* group.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = group.cpp; sourceTree = "<group>"; };
-		6CDBBB982397E38D002D7FEA /* group.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = group.hpp; sourceTree = "<group>"; };
+		6CDBBB9A23993C2C002D7FEA /* Once.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Once.h; sourceTree = "<group>"; };
+		6CDBBB9B23993C2C002D7FEA /* Once.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Once.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +157,8 @@
 		6C1B04CF236E5CFE000B9765 = {
 			isa = PBXGroup;
 			children = (
+				6CDBBB9A23993C2C002D7FEA /* Once.h */,
+				6CDBBB9B23993C2C002D7FEA /* Once.m */,
 				6C1B04E3236E5D0E000B9765 /* error.hpp */,
 				6C1B05D223800E7C000B9765 /* Swift */,
 				6C1B05C2237AC768000B9765 /* IO */,
@@ -184,8 +195,10 @@
 				6C1B0526237307BB000B9765 /* Counter.hpp */,
 				6CDBBB942396914E002D7FEA /* assemblyline.cpp */,
 				6CDBBB952396914E002D7FEA /* assemblyline.hpp */,
+				6C899BFA2399F4FA0044DFD4 /* line.cpp */,
+				6C899BFB2399F4FA0044DFD4 /* line.hpp */,
 				6CDBBB972397E38D002D7FEA /* group.cpp */,
-				6CDBBB982397E38D002D7FEA /* group.hpp */,
+				6C899BF62399F2E70044DFD4 /* group.hpp */,
 			);
 			path = POSIX;
 			sourceTree = "<group>";
@@ -266,6 +279,8 @@
 				6C1B053723769F10000B9765 /* Queue.hpp */,
 				6C1B05BF237991E3000B9765 /* List.cpp */,
 				6C1B05C0237991E3000B9765 /* List.hpp */,
+				6C899BF72399F4250044DFD4 /* recursive.cpp */,
+				6C899BF82399F4250044DFD4 /* recursive.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -395,6 +410,8 @@
 			files = (
 				6C1B0501236EF87A000B9765 /* Share_ptr.cpp in Sources */,
 				6C1B050F23718FAB000B9765 /* auto_ptr.cpp in Sources */,
+				6C899BF92399F4250044DFD4 /* recursive.cpp in Sources */,
+				6CDBBB9C23993C2C002D7FEA /* Once.m in Sources */,
 				6C1B04EE236E95C5000B9765 /* Foo.cpp in Sources */,
 				6C1B05D1237D919C000B9765 /* string.cpp in Sources */,
 				6C1B05BE2377E14F000B9765 /* Global.cpp in Sources */,
@@ -424,6 +441,7 @@
 				6C1B05C1237991E3000B9765 /* List.cpp in Sources */,
 				6C1B050823706720000B9765 /* Mutex.cpp in Sources */,
 				6C1B052B237456FD000B9765 /* Tmp.cpp in Sources */,
+				6C899BFC2399F4FA0044DFD4 /* line.cpp in Sources */,
 				6C1B04EB236E7F3C000B9765 /* Observable.cpp in Sources */,
 				6C1B05C8237C38D1000B9765 /* TypeTraits.cpp in Sources */,
 				6C1B04F1236E97E4000B9765 /* Counter.cpp in Sources */,
