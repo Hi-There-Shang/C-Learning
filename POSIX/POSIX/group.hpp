@@ -277,7 +277,7 @@ int crew_start(crew_t *crew, char *filepath, char *search) {
     return 0;
 }
 
-int main(int argc, char *arg[]) {
+int main1234321123(int argc, char *arg[]) {
     
     crew_t *crew;
     char line[256];
