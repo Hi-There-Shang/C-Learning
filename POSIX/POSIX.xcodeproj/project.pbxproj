@@ -46,6 +46,7 @@
 		6C899BFC2399F4FA0044DFD4 /* line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C899BFA2399F4FA0044DFD4 /* line.cpp */; };
 		6C899C002399F5A70044DFD4 /* signal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C899BFE2399F5A70044DFD4 /* signal.cpp */; };
 		6CB785C8239B84BA00B3A7D4 /* server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CB785C6239B84BA00B3A7D4 /* server.cpp */; };
+		6CB785CB239BC56800B3A7D4 /* barrier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CB785C9239BC56800B3A7D4 /* barrier.cpp */; };
 		6CDBBB962396914E002D7FEA /* assemblyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB942396914E002D7FEA /* assemblyline.cpp */; };
 		6CDBBB992397E38D002D7FEA /* group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB972397E38D002D7FEA /* group.cpp */; };
 		6CDBBB9C23993C2C002D7FEA /* Once.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB9B23993C2C002D7FEA /* Once.m */; };
@@ -142,6 +143,8 @@
 		6C899BFF2399F5A70044DFD4 /* signal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = signal.hpp; sourceTree = "<group>"; };
 		6CB785C6239B84BA00B3A7D4 /* server.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = server.cpp; sourceTree = "<group>"; };
 		6CB785C7239B84BA00B3A7D4 /* server.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = server.hpp; sourceTree = "<group>"; };
+		6CB785C9239BC56800B3A7D4 /* barrier.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = barrier.cpp; sourceTree = "<group>"; };
+		6CB785CA239BC56800B3A7D4 /* barrier.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = barrier.hpp; sourceTree = "<group>"; };
 		6CDBBB942396914E002D7FEA /* assemblyline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = assemblyline.cpp; sourceTree = "<group>"; };
 		6CDBBB952396914E002D7FEA /* assemblyline.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = assemblyline.hpp; sourceTree = "<group>"; };
 		6CDBBB972397E38D002D7FEA /* group.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = group.cpp; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				6C899BF62399F2E70044DFD4 /* group.hpp */,
 				6CB785C6239B84BA00B3A7D4 /* server.cpp */,
 				6CB785C7239B84BA00B3A7D4 /* server.hpp */,
+				6CB785C9239BC56800B3A7D4 /* barrier.cpp */,
+				6CB785CA239BC56800B3A7D4 /* barrier.hpp */,
 			);
 			path = POSIX;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				6C1B05D1237D919C000B9765 /* string.cpp in Sources */,
 				6C1B05BE2377E14F000B9765 /* Global.cpp in Sources */,
 				6C1B051223718FE9000B9765 /* scope_ptr.cpp in Sources */,
+				6CB785CB239BC56800B3A7D4 /* barrier.cpp in Sources */,
 				6C1B053523767A94000B9765 /* person.c in Sources */,
 				6C1B04DC236E5CFF000B9765 /* main.cpp in Sources */,
 				6C1B05D823803FEA000B9765 /* JsonTraits.cpp in Sources */,
