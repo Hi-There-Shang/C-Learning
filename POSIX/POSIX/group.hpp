@@ -64,6 +64,9 @@ void *worker_routine(void *arg) {
     
     pthread_mutex_lock(&crew->mutex);
     
+    /*
+     count = 0 临界点 go
+     */
     while (crew->work_count == 0) {
         pthread_cond_wait(&crew->go, &crew->mutex);
     }
@@ -76,11 +79,14 @@ void *worker_routine(void *arg) {
         pthread_mutex_lock(&crew->mutex);
         printf("crew %d top: first is %p, count is %ld \n",mine->index, crew->first, crew->work_count);
         
+        /*
+         临界点  first == NULL  go
+         */
         while (crew->first == NULL) {
             pthread_cond_wait(&crew->go, &crew->mutex);
         }
         
-        printf("crew %d top: woke is %p, count is %ld \n",mine->index, crew->first, crew->work_count);
+        printf("11111crew %d top: woke is %p, count is %ld \n",mine->index, crew->first, crew->work_count);
         
         work = crew->first;
         crew->first = work->next;
@@ -93,6 +99,7 @@ void *worker_routine(void *arg) {
         
         pthread_mutex_unlock(&crew->mutex);
         
+        printf("work path %s \n", work->path);
         lstat(work->path, &filestat);
         if (S_ISLNK(filestat.st_mode)) {
             printf("this is link \n");
@@ -147,6 +154,10 @@ void *worker_routine(void *arg) {
                 
                 crew->work_count++;
                 printf("crew %d top: add is %p, first is %p ,count is %ld \n",mine->index, new_work ,crew->first, crew->work_count);
+                
+                /*
+                 发信息 go
+                 */
                 pthread_cond_signal(&crew->go);
                 pthread_mutex_unlock(&crew->mutex);
                 
@@ -196,6 +207,10 @@ int crew_create(crew_t **crew, int crew_size) {
     pthread_mutex_init(&(*crew)->mutex, NULL);
     
     for (crew_index = 0; crew_index < crew_size; crew_index++) {
+        
+        (*crew)->crew[crew_index].index = crew_index;
+        (*crew)->crew[crew_index].crew = *crew;
+        printf("index = %d -- %p \n", crew_index, &(*crew)->crew[crew_index]);
         pthread_create(&(*crew)[crew_index].thread, NULL, worker_routine, (void *)&(*crew)->crew[crew_index]);
     }
     return 0;
@@ -232,12 +247,12 @@ int crew_start(crew_t *crew, char *filepath, char *search) {
         }
     }
     
-    fprintf(stdout, "filepath %s, Path_max %ld, name_max %ld \n", filepath, path_max, name_max);
+    fprintf(stdout, "1- filepath %s, Path_max %ld, name_max %ld \n", filepath, path_max, name_max);
     path_max++;
     name_max++;
     
     request = (work_t *)malloc(sizeof(work_t));
-    fprintf(stdout, "filepath %s \n", filepath);
+    fprintf(stdout, "2 - filepath %s \n", filepath);
     request->path = (char *)malloc(sizeof(path_max));
     strcmp(request->path, filepath);
     request->string = search;
@@ -274,8 +289,15 @@ int main(int argc, char *arg[]) {
 //        exit(0);
 //    }
     
+    struct stat filestat;
     
     pthread_setconcurrency(Size);
+    char *filePath = "/Users/shangchengcheng/Desktop/Hello";
+    lstat(filePath, &filestat);
+    
+    if (S_ISDIR(filestat.st_mode)) {
+        printf("DIR \n");
+    }
     
     crew_create(&crew, Size);
     
