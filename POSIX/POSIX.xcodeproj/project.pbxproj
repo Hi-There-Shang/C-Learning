@@ -42,6 +42,8 @@
 		6C1B05D1237D919C000B9765 /* string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05CF237D919C000B9765 /* string.cpp */; };
 		6C1B05D523800E96000B9765 /* RelativePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D323800E96000B9765 /* RelativePointer.cpp */; };
 		6C1B05D823803FEA000B9765 /* JsonTraits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1B05D623803FEA000B9765 /* JsonTraits.cpp */; };
+		6C71D87423A4FE5B00C212C6 /* worker_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C71D87223A4FE5B00C212C6 /* worker_manager.cpp */; };
+		6C71D87B23B0EFC500C212C6 /* rwlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C71D87923B0EFC500C212C6 /* rwlock.cpp */; };
 		6C899BF92399F4250044DFD4 /* recursive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C899BF72399F4250044DFD4 /* recursive.cpp */; };
 		6C899BFC2399F4FA0044DFD4 /* line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C899BFA2399F4FA0044DFD4 /* line.cpp */; };
 		6C899C002399F5A70044DFD4 /* signal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C899BFE2399F5A70044DFD4 /* signal.cpp */; };
@@ -134,6 +136,10 @@
 		6C1B05D423800E96000B9765 /* RelativePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RelativePointer.hpp; sourceTree = "<group>"; };
 		6C1B05D623803FEA000B9765 /* JsonTraits.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JsonTraits.cpp; sourceTree = "<group>"; };
 		6C1B05D723803FEA000B9765 /* JsonTraits.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JsonTraits.hpp; sourceTree = "<group>"; };
+		6C71D87223A4FE5B00C212C6 /* worker_manager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = worker_manager.cpp; sourceTree = "<group>"; };
+		6C71D87323A4FE5B00C212C6 /* worker_manager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = worker_manager.hpp; sourceTree = "<group>"; };
+		6C71D87923B0EFC500C212C6 /* rwlock.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rwlock.cpp; sourceTree = "<group>"; };
+		6C71D87A23B0EFC500C212C6 /* rwlock.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rwlock.hpp; sourceTree = "<group>"; };
 		6C899BF62399F2E70044DFD4 /* group.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = group.hpp; sourceTree = "<group>"; };
 		6C899BF72399F4250044DFD4 /* recursive.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = recursive.cpp; sourceTree = "<group>"; };
 		6C899BF82399F4250044DFD4 /* recursive.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = recursive.hpp; sourceTree = "<group>"; };
@@ -213,6 +219,10 @@
 				6CB785C7239B84BA00B3A7D4 /* server.hpp */,
 				6CB785C9239BC56800B3A7D4 /* barrier.cpp */,
 				6CB785CA239BC56800B3A7D4 /* barrier.hpp */,
+				6C71D87223A4FE5B00C212C6 /* worker_manager.cpp */,
+				6C71D87323A4FE5B00C212C6 /* worker_manager.hpp */,
+				6C71D87923B0EFC500C212C6 /* rwlock.cpp */,
+				6C71D87A23B0EFC500C212C6 /* rwlock.hpp */,
 			);
 			path = POSIX;
 			sourceTree = "<group>";
@@ -446,6 +456,7 @@
 				6C1B05D823803FEA000B9765 /* JsonTraits.cpp in Sources */,
 				6CB785C8239B84BA00B3A7D4 /* server.cpp in Sources */,
 				6C1B05CB237D7A86000B9765 /* Functor.cpp in Sources */,
+				6C71D87423A4FE5B00C212C6 /* worker_manager.cpp in Sources */,
 				6C1B051923719B31000B9765 /* test_share_ptr.cpp in Sources */,
 				6C1B04FD236EDF81000B9765 /* Tree_Sort.cpp in Sources */,
 				6C1B04FA236ED20C000B9765 /* Traits.cpp in Sources */,
@@ -465,6 +476,7 @@
 				6C1B05242372D66C000B9765 /* Boost_String.cpp in Sources */,
 				6C1B04F7236ED1CB000B9765 /* Stock.cpp in Sources */,
 				6C1B05C1237991E3000B9765 /* List.cpp in Sources */,
+				6C71D87B23B0EFC500C212C6 /* rwlock.cpp in Sources */,
 				6C1B050823706720000B9765 /* Mutex.cpp in Sources */,
 				6C1B052B237456FD000B9765 /* Tmp.cpp in Sources */,
 				6C899BFC2399F4FA0044DFD4 /* line.cpp in Sources */,
