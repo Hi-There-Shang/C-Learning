@@ -222,7 +222,7 @@ void* client_routine(void *arg) {
     return NULL;
 }
 
-int main() {
+int main123321123321() {
     pthread_t thread;
     int count;
 //    int status;

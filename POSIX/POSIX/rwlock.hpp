@@ -16,7 +16,9 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <errno.h>
+#include <iostream>
 #include <string.h>
+#include <vector>
 #include <dirent.h>
 
 typedef struct rwlock_tag {
@@ -299,6 +301,407 @@ void *thread_routine(void *arg) {
     }
     
     return nullptr;
+}
+
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        int l = 0;
+        int r = 0;
+        
+        ListNode *left  = l1;
+        ListNode *right = l2;
+        ListNode *lLast = NULL;
+        ListNode *rLast = NULL;
+        while(left != NULL) {
+            lLast = left;
+            left = left->next;
+            l++;
+        }
+        while(right != NULL){
+            rLast = right;
+            right = right->next;
+            r++;
+        }
+        if(l <= r) {
+            while(l <= r) {
+                ListNode *newNode = new ListNode(0);
+                lLast->next = newNode;
+                l++;
+            }
+        } else {
+            while(r <= l) {
+                ListNode *newNode = new ListNode(0);
+                rLast->next = newNode;
+                r++;
+            }
+        }
+        
+        bool flag = 0;
+        ListNode *lHead = l1;
+        ListNode *rHead = l2;
+        
+        ListNode *retHead = new ListNode(0);
+        
+        while(r--) {
+            if (lHead == nullptr || rHead == nullptr || r < 0) {
+                break;
+            }
+            ListNode *newNode = new ListNode(0);
+            
+            if(flag == 1) {
+                newNode->val = (lHead->val + rHead->val)%10 + 1;
+            } else {
+                newNode->val = (lHead->val + rHead->val)%10;
+            }
+            
+            retHead->next = newNode;
+             printf("%d---- \n", newNode->val);
+            retHead = newNode;
+            
+            int tmpFlag = lHead->val + rHead->val + flag;
+            flag = ((tmpFlag / 10) > 0) ? 1 : 0;
+            lHead = lHead->next;
+            rHead = rHead->next;
+        }
+       
+        return retHead->next;
+    }
+};
+
+class Solution1 {
+public:
+    std::string longestPalindrome(std::string s) {
+        int length = s.length();
+        int left = 0;
+        int right = 0;
+        int len = 1;
+        int maxLen = 0;
+        int maxStart = 0;
+        
+        for(int i = 0; i < length; i++) {
+            left = i - 1;
+            right = i + 1;
+            
+            while(left >= 0 && s.at(i) == s.at(left)) {
+                left--;
+                len++;
+            }
+            
+            while(right < length && s.at(i) == s.at(right)) {
+                right++;
+                len++;
+            }
+            
+            while(left >=0 && right < length && s.at(left) == s.at(right)) {
+                len = len + 2;
+                left--;
+                right++;
+            }
+            
+            if(len < maxLen) {
+                maxLen = len;
+                maxStart = left;
+            }
+            len = 0;
+        }
+        return s.substr(maxStart + 1, maxStart + maxLen + 1);
+    }
+};
+
+void all(int nums[5], int k, int n) {
+    if (k == n) {
+        for (int i = 0; i < 3; i++) {
+            printf("%d-", nums[i]);
+        }
+        printf("\n");
+        return;
+    }
+    
+    for (int i = 0; i < 3 ; i++) {
+        
+        /// 交换二个数
+        std::swap(nums[i], nums[k]);
+        
+        /// 依次增加---->
+        all(nums, k + 1, 3);
+        
+        /// 替换回来
+        std::swap(nums[i], nums[k]);
+        
+        std::string s;
+//        s.substr()
+    }
+}
+using namespace std;
+class Solution2 {
+public:
+   
+    std::vector<int> path;
+    vector<vector<int>> res;
+    vector<int> candidates;
+    
+    void DFS(int satrt, int target) {
+        if(target == 0) {
+            res.push_back(path);
+            return;
+        }
+        
+        for (int i = satrt;
+             i < this->candidates.size() && (target - this->candidates[i]) >= 0;
+             i++) {
+            path.push_back(this->candidates[i]);
+            DFS(i, target - this->candidates[i]);
+            path.pop_back();
+        }
+    }
+    
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        std::sort(candidates.begin(), candidates.end());
+        this->candidates = candidates;
+        DFS(0, target);
+        return res;
+    }
+};
+
+
+/*
+ 冒泡排序
+ */
+
+
+void bubbleSort(int nums[], int size) {
+    
+    for (int i = 0; i < size; i++) {
+        
+        for (int j = i + 1; j < size; j++) {
+            if (nums[i] > nums[j]) {
+                std::swap(nums[i], nums[j]);
+            }
+        }
+    }
+    
+    for (int i = 0; i < size; i++) {
+        printf("%d  ", nums[i]);
+    }
+}
+
+void quickSort() {
+    
+}
+
+/// 正向遍历 和 逆向遍历  ----> 条件 是什么----->
+void insertSort(int nums[], int size) {
+  
+    for (int i = 0; i < size; i++) {
+        
+        /// 这里没明白.....
+        for (int j = size - 1; (j > 0 && nums[j - 1] > nums[j]); j--) {
+            std::swap(nums[i], nums[j]);
+        }
+    }
+    
+    for (int i = 0; i < size; i++) {
+        printf("%d  ", nums[i]);
+    }
+}
+
+/// 基准位
+void insertSort1(int nums[], int size) {
+    int flag = 0;
+    for (int i = 0; i < size; i++) {
+        /// 取第一个数当做基准
+        flag = nums[i];
+    }
+    
+    for (int i = 0; i < size; i++) {
+        printf("%d  ", nums[i]);
+    }
+}
+
+
+void selectSort(int nums[], int size) {
+    
+    int min= 0;
+    for (int i = 0; i < size; i++) {
+        
+        /// 找到最小的 index  默认第一个最小
+        min = i;
+        
+        for (int j = i + 1; j < size; j++) {
+            
+            /// 与后面的比较  交换index
+            if (nums[min] > nums[j]) {
+                
+                /// 记录index
+                min = j;
+            }
+            
+            /// 替换
+            /// i是最小的 min比i的大
+            std::swap(nums[i], nums[min]);
+        }
+    }
+    
+    for (int i = 0; i < size; i++) {
+        printf("%d  ", nums[i]);
+    }
+}
+
+int minCount(int used) {
+    int un_used = 1024 - used;
+    int res = 0;
+    int min = 1024;
+    for(int i = 0; i <= un_used/64; i++) {
+        for(int j = 0; j <= un_used/16; j++) {
+            for(int k = 0; k <= un_used/4; k++) {
+                for(int m = 0; m <= un_used; m++) {
+                    if((i * 64 + j * 16 + k * 4 + m) == un_used) {
+                        res = i + j + k + m;
+                        min = res < min ? res : min ;
+                    }
+                }
+            }
+        }
+    }
+    return min;
+}
+
+void swap(int i, int j, int **nums) {
+    int tmp = *nums[i];
+    *nums[i] = *nums[j];
+    *nums[j] = tmp;
+}
+
+int findThird(int size, int *nums) {
+    int res[size];
+    int j = 0;
+    for(int i = 0; i < size; i++) {
+        for(int j = i + 1; j < size; j++) {
+            if(nums[i] > nums[j]) {
+                swap(i, j, &nums);
+            }
+        }
+    }
+    
+    for(int i = 1; i < size; i++) {
+        if(nums[i] == nums[i - 1]) {
+            continue;
+        }
+        j++;
+        if (j== 2) {
+            return nums[i];
+        }
+    }
+    
+    return 0;
+}
+
+class Solution111 {
+public:
+    vector<int> multiply(const vector<int>& A) {
+        int size = (int)A.size();
+        vector<int> res;
+        for(int i = size - 1; i >= 0; i--) {
+            int tmp = bElement(i, A);
+            res.push_back(tmp);
+        }
+        return res;
+    }
+    
+    int bElement(int i, const vector<int>& A) {
+        
+        int j = i;
+        int res = 1;
+        while(j >= 0) {
+            res *= A[j];
+            j--;
+        }
+        
+        return res;
+    }
+};
+
+int main() {
+    
+    vector<int> v{1,2,3,4,5};
+    
+    Solution111 s;
+    
+    vector<int> rs = s.multiply(v);
+    for (int i = 0; i < rs.size(); i++) {
+        printf("%d  \t", rs[i]);
+    }
+
+    return 0;
+    
+    int nums[11] = {1,1,1,2,3,4,4,5,6,6,7};
+    int count = findThird(11, nums);
+     printf("%d \n", count);
+    return 0;
+//   int min =  minCount(123);
+//    printf("%d \n", min);
+//    int nums[] = {2,3,4,5,7,1};
+    
+    insertSort(nums, 6);
+    
+    return 0;
+    std::vector<int> vec{1,1,3,6,7};
+    
+    Solution2 s2;
+    vector<vector<int>> res = s2.combinationSum(vec, 7);
+    
+    for(vector<int> path:res) {
+        for(int i: path) {
+            printf("%d-", i);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+    
+    int _nums[3] = {1,2,3};
+    
+    all(_nums, 0, 3);
+    
+    return 0;
+//    Solution1 s;
+//    std::string st = s.longestPalindrome("bababad");
+//
+//    printf("%s \n", st.c_str());
+   
+    
+    return 0;
+    
+    Solution solution;
+    ListNode *l1 = new ListNode(2);
+    ListNode *l2 = new ListNode(4);
+    ListNode *l3 = new ListNode(3);
+
+    ListNode *r1 = new ListNode(5);
+    ListNode *r2 = new ListNode(6);
+    ListNode *r3 = new ListNode(4);
+    
+    l1->next = l2;
+    l2->next = l3;
+    l3->next = nullptr;
+    r1->next = r2;
+    r2->next = r3;
+    r3->next = nullptr;
+    
+   ListNode *node =  solution.addTwoNumbers(l1, r1);
+
+    while (node != nullptr) {
+        printf(" --  %d \n", node->val);
+        node = node->next;
+    }
 }
 
 #endif /* rwlock_hpp */
