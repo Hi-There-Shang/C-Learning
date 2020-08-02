@@ -49,6 +49,12 @@
 		6C899C002399F5A70044DFD4 /* signal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C899BFE2399F5A70044DFD4 /* signal.cpp */; };
 		6CB785C8239B84BA00B3A7D4 /* server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CB785C6239B84BA00B3A7D4 /* server.cpp */; };
 		6CB785CB239BC56800B3A7D4 /* barrier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CB785C9239BC56800B3A7D4 /* barrier.cpp */; };
+		6CCFA89024CC59DD004604CD /* TrailingObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CCFA88E24CC59DD004604CD /* TrailingObjects.cpp */; };
+		6CCFA89324CEDACA004604CD /* Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CCFA89124CEDACA004604CD /* Box.cpp */; };
+		6CCFA89624D024D1004604CD /* CanInline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CCFA89424D024D1004604CD /* CanInline.cpp */; };
+		6CCFA89924D14DC6004604CD /* Decl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CCFA89724D14DC6004604CD /* Decl.cpp */; };
+		6CCFA89C24D14DFF004604CD /* DeclNodes.def in Sources */ = {isa = PBXBuildFile; fileRef = 6CCFA89A24D14DFF004604CD /* DeclNodes.def */; };
+		6CCFA89F24D67107004604CD /* TestEnum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CCFA89D24D67107004604CD /* TestEnum.cpp */; };
 		6CDBBB962396914E002D7FEA /* assemblyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB942396914E002D7FEA /* assemblyline.cpp */; };
 		6CDBBB992397E38D002D7FEA /* group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB972397E38D002D7FEA /* group.cpp */; };
 		6CDBBB9C23993C2C002D7FEA /* Once.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBBB9B23993C2C002D7FEA /* Once.m */; };
@@ -151,6 +157,17 @@
 		6CB785C7239B84BA00B3A7D4 /* server.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = server.hpp; sourceTree = "<group>"; };
 		6CB785C9239BC56800B3A7D4 /* barrier.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = barrier.cpp; sourceTree = "<group>"; };
 		6CB785CA239BC56800B3A7D4 /* barrier.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = barrier.hpp; sourceTree = "<group>"; };
+		6CCFA88E24CC59DD004604CD /* TrailingObjects.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TrailingObjects.cpp; sourceTree = "<group>"; };
+		6CCFA88F24CC59DD004604CD /* TrailingObjects.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TrailingObjects.hpp; sourceTree = "<group>"; };
+		6CCFA89124CEDACA004604CD /* Box.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Box.cpp; sourceTree = "<group>"; };
+		6CCFA89224CEDACA004604CD /* Box.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Box.hpp; sourceTree = "<group>"; };
+		6CCFA89424D024D1004604CD /* CanInline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CanInline.cpp; sourceTree = "<group>"; };
+		6CCFA89524D024D1004604CD /* CanInline.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CanInline.hpp; sourceTree = "<group>"; };
+		6CCFA89724D14DC6004604CD /* Decl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Decl.cpp; sourceTree = "<group>"; };
+		6CCFA89824D14DC6004604CD /* Decl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Decl.hpp; sourceTree = "<group>"; };
+		6CCFA89A24D14DFF004604CD /* DeclNodes.def */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeclNodes.def; sourceTree = "<group>"; };
+		6CCFA89D24D67107004604CD /* TestEnum.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestEnum.cpp; sourceTree = "<group>"; };
+		6CCFA89E24D67107004604CD /* TestEnum.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestEnum.hpp; sourceTree = "<group>"; };
 		6CDBBB942396914E002D7FEA /* assemblyline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = assemblyline.cpp; sourceTree = "<group>"; };
 		6CDBBB952396914E002D7FEA /* assemblyline.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = assemblyline.hpp; sourceTree = "<group>"; };
 		6CDBBB972397E38D002D7FEA /* group.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = group.cpp; sourceTree = "<group>"; };
@@ -371,6 +388,17 @@
 				6C1B05D423800E96000B9765 /* RelativePointer.hpp */,
 				6C1B05D623803FEA000B9765 /* JsonTraits.cpp */,
 				6C1B05D723803FEA000B9765 /* JsonTraits.hpp */,
+				6CCFA88E24CC59DD004604CD /* TrailingObjects.cpp */,
+				6CCFA88F24CC59DD004604CD /* TrailingObjects.hpp */,
+				6CCFA89124CEDACA004604CD /* Box.cpp */,
+				6CCFA89224CEDACA004604CD /* Box.hpp */,
+				6CCFA89424D024D1004604CD /* CanInline.cpp */,
+				6CCFA89524D024D1004604CD /* CanInline.hpp */,
+				6CCFA89724D14DC6004604CD /* Decl.cpp */,
+				6CCFA89A24D14DFF004604CD /* DeclNodes.def */,
+				6CCFA89824D14DC6004604CD /* Decl.hpp */,
+				6CCFA89D24D67107004604CD /* TestEnum.cpp */,
+				6CCFA89E24D67107004604CD /* TestEnum.hpp */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -456,6 +484,8 @@
 				6C1B05D823803FEA000B9765 /* JsonTraits.cpp in Sources */,
 				6CB785C8239B84BA00B3A7D4 /* server.cpp in Sources */,
 				6C1B05CB237D7A86000B9765 /* Functor.cpp in Sources */,
+				6CCFA89924D14DC6004604CD /* Decl.cpp in Sources */,
+				6CCFA89624D024D1004604CD /* CanInline.cpp in Sources */,
 				6C71D87423A4FE5B00C212C6 /* worker_manager.cpp in Sources */,
 				6C1B051923719B31000B9765 /* test_share_ptr.cpp in Sources */,
 				6C1B04FD236EDF81000B9765 /* Tree_Sort.cpp in Sources */,
@@ -464,6 +494,7 @@
 				6C1B05162371933D000B9765 /* user.cpp in Sources */,
 				6C1B05C5237AC780000B9765 /* file.cpp in Sources */,
 				6C1B0504236F03CE000B9765 /* Boost_array.cpp in Sources */,
+				6CCFA89C24D14DFF004604CD /* DeclNodes.def in Sources */,
 				6CDBBB962396914E002D7FEA /* assemblyline.cpp in Sources */,
 				6C1B051C2371B940000B9765 /* alarm.cpp in Sources */,
 				6C1B053223767A83000B9765 /* hello.c in Sources */,
@@ -471,6 +502,8 @@
 				6C1B053823769F10000B9765 /* Queue.cpp in Sources */,
 				6C1B05CE237D7A98000B9765 /* FunctorImpl.cpp in Sources */,
 				6C1B04F4236ED1C1000B9765 /* StockFactory.cpp in Sources */,
+				6CCFA89324CEDACA004604CD /* Box.cpp in Sources */,
+				6CCFA89024CC59DD004604CD /* TrailingObjects.cpp in Sources */,
 				6C1B052F2375B9CE000B9765 /* Policies.cpp in Sources */,
 				6C1B05D523800E96000B9765 /* RelativePointer.cpp in Sources */,
 				6C1B05242372D66C000B9765 /* Boost_String.cpp in Sources */,
@@ -484,6 +517,7 @@
 				6C1B05C8237C38D1000B9765 /* TypeTraits.cpp in Sources */,
 				6C1B04F1236E97E4000B9765 /* Counter.cpp in Sources */,
 				6C1B051F2371B948000B9765 /* alarm_data.cpp in Sources */,
+				6CCFA89F24D67107004604CD /* TestEnum.cpp in Sources */,
 				6CDBBB992397E38D002D7FEA /* group.cpp in Sources */,
 				6C1B0527237307BB000B9765 /* Counter.cpp in Sources */,
 			);
